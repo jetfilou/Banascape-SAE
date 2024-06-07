@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnRetour = new Button();
             SuspendLayout();
+            // 
+            // btnRetour
+            // 
+            btnRetour.Location = new Point(645, 376);
+            btnRetour.Name = "btnRetour";
+            btnRetour.Size = new Size(112, 34);
+            btnRetour.TabIndex = 0;
+            btnRetour.Text = "Retour";
+            btnRetour.UseVisualStyleBackColor = true;
+            btnRetour.Click += this.btnRetour_Click;
             // 
             // frmClassement
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnRetour);
             Name = "frmClassement";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Classement";
@@ -42,5 +54,7 @@
         }
 
         #endregion
+
+        private Button btnRetour;
     }
 }
