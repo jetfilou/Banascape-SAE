@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Banascape
 {
     public partial class frmMenuPrincipal : Form
@@ -33,12 +35,17 @@ namespace Banascape
 
         private void btnClassement_Click(object sender, EventArgs e)
         {
-            frmClassement frmClassement;
-            // instanciation d'un objet de type FormClassement 
-            frmClassement = new frmClassement();
-
-            // ouverture du Classement
-            frmClassement.Show();
+            Form frmClassement = Application.OpenForms["frmClassement"];
+            if (frmClassement != null)
+            {
+                frmClassement.TopMost = true;
+            }
+            else
+            {
+                // Si le formulaire de paramétrage n'est pas trouvé, créez-en un nouveau
+                frmClassement = new frmClassement(); // Changez "FormParametrage" par le constructeur de votre formulaire de paramétrage
+                frmClassement.Show();
+            }
         }
 
         private void btnReprendre_Click(object sender, EventArgs e)

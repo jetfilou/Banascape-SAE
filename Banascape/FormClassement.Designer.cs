@@ -39,14 +39,16 @@
             btnRetour.TabIndex = 0;
             btnRetour.Text = "Retour";
             btnRetour.UseVisualStyleBackColor = true;
-            btnRetour.Click += this.btnRetour_Click;
+            btnRetour.Click += btnRetour_Click;
             // 
             // frmClassement
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlDark;
             ClientSize = new Size(800, 450);
             Controls.Add(btnRetour);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmClassement";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Classement";
