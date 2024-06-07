@@ -34,11 +34,22 @@ namespace Banascape
         private void btnClassement_Click(object sender, EventArgs e)
         {
             frmClassement frmClassement;
-            // instanciation d'un objet de type FormJeu 
+            // instanciation d'un objet de type FormClassement 
             frmClassement = new frmClassement();
 
-            // ouverture du formulaire Nouvelle partie et fermeture de l'écran d'accueil
+            // ouverture du Classement
             frmClassement.Show();
+        }
+
+        private void btnReprendre_Click(object sender, EventArgs e)
+        {
+            frmInterfaceJeu frmjeu;
+            // instanciation d'un objet de type FormInterfaceJeu 
+            frmjeu = new frmInterfaceJeu();
+
+            // ouverture du Jeu
+            frmjeu.Show();
+            this.Hide();
         }
     }
 }

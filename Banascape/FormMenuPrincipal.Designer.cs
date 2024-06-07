@@ -70,6 +70,7 @@
             btnReprendre.TabIndex = 1;
             btnReprendre.Text = "Reprendre";
             btnReprendre.UseVisualStyleBackColor = false;
+            btnReprendre.Click += btnReprendre_Click;
             // 
             // lblBanascape
             // 
