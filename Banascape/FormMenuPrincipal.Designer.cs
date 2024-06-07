@@ -103,6 +103,7 @@
             btnNouvellePartie.TabIndex = 3;
             btnNouvellePartie.Text = "Nouvelle Partie";
             btnNouvellePartie.UseVisualStyleBackColor = false;
+            btnNouvellePartie.Click += btnNouvellePartie_Click;
             // 
             // btnQuitter
             // 

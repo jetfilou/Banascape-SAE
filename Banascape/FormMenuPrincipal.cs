@@ -9,7 +9,7 @@ namespace Banascape
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
-            DialogResult resultat = MessageBox.Show("Voulez-vous vraiment quitter la partie ?",
+            DialogResult resultat = MessageBox.Show("Voulez-vous vraiment quitter le jeu ?",
                                       "Confirmation",
                                       MessageBoxButtons.YesNo,
                                       MessageBoxIcon.Question);
@@ -17,6 +17,18 @@ namespace Banascape
             {
                 Application.Exit();
             }
+        }
+
+        private void btnNouvellePartie_Click(object sender, EventArgs e)
+        { 
+            FormNouvellePartie frmNewPartie;
+            // instanciation d'un objet de type FormJeu 
+            frmNewPartie = new FormNouvellePartie();
+
+                // ouverture du formulaire Nouvelle partie et fermeture de l'écran d'accueil
+                frmNewPartie.Show();
+                this.Hide();
+            
         }
     }
 }
