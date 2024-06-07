@@ -83,9 +83,39 @@ namespace Banascape.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bouton_retour {
+            get {
+                object obj = ResourceManager.GetObject("bouton_retour", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bouton1 {
             get {
                 object obj = ResourceManager.GetObject("Bouton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Menu_vierge {
+            get {
+                object obj = ResourceManager.GetObject("Menu_vierge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trophee {
+            get {
+                object obj = ResourceManager.GetObject("trophee", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

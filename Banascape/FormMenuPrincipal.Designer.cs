@@ -42,10 +42,10 @@
             // 
             picBanane.Anchor = AnchorStyles.Top;
             picBanane.Image = Properties.Resources.Banane;
-            picBanane.Location = new Point(519, 25);
-            picBanane.Margin = new Padding(4, 5, 4, 5);
+            picBanane.Location = new Point(415, 20);
+            picBanane.Margin = new Padding(3, 4, 3, 4);
             picBanane.Name = "picBanane";
-            picBanane.Size = new Size(129, 150);
+            picBanane.Size = new Size(103, 120);
             picBanane.SizeMode = PictureBoxSizeMode.Zoom;
             picBanane.TabIndex = 0;
             picBanane.TabStop = false;
@@ -61,12 +61,12 @@
             btnReprendre.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnReprendre.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnReprendre.FlatStyle = FlatStyle.Flat;
-            btnReprendre.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReprendre.Font = new Font("Arial Rounded MT Bold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReprendre.ForeColor = Color.Black;
-            btnReprendre.Location = new Point(481, 287);
-            btnReprendre.Margin = new Padding(4, 5, 4, 5);
+            btnReprendre.Location = new Point(385, 230);
+            btnReprendre.Margin = new Padding(3, 4, 3, 4);
             btnReprendre.Name = "btnReprendre";
-            btnReprendre.Size = new Size(237, 83);
+            btnReprendre.Size = new Size(190, 66);
             btnReprendre.TabIndex = 1;
             btnReprendre.Text = "Reprendre";
             btnReprendre.UseVisualStyleBackColor = false;
@@ -76,11 +76,10 @@
             // 
             lblBanascape.Anchor = AnchorStyles.Top;
             lblBanascape.AutoSize = true;
-            lblBanascape.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBanascape.Location = new Point(481, 192);
-            lblBanascape.Margin = new Padding(4, 0, 4, 0);
+            lblBanascape.Font = new Font("Arial Rounded MT Bold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBanascape.Location = new Point(385, 154);
             lblBanascape.Name = "lblBanascape";
-            lblBanascape.Size = new Size(215, 55);
+            lblBanascape.Size = new Size(201, 39);
             lblBanascape.TabIndex = 2;
             lblBanascape.Text = "Banascape";
             // 
@@ -95,12 +94,12 @@
             btnNouvellePartie.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnNouvellePartie.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnNouvellePartie.FlatStyle = FlatStyle.Flat;
-            btnNouvellePartie.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNouvellePartie.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNouvellePartie.ForeColor = Color.Black;
-            btnNouvellePartie.Location = new Point(481, 395);
-            btnNouvellePartie.Margin = new Padding(4, 5, 4, 5);
+            btnNouvellePartie.Location = new Point(385, 316);
+            btnNouvellePartie.Margin = new Padding(3, 4, 3, 4);
             btnNouvellePartie.Name = "btnNouvellePartie";
-            btnNouvellePartie.Size = new Size(237, 83);
+            btnNouvellePartie.Size = new Size(190, 66);
             btnNouvellePartie.TabIndex = 3;
             btnNouvellePartie.Text = "Nouvelle Partie";
             btnNouvellePartie.UseVisualStyleBackColor = false;
@@ -117,12 +116,12 @@
             btnQuitter.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnQuitter.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnQuitter.FlatStyle = FlatStyle.Flat;
-            btnQuitter.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnQuitter.Font = new Font("Arial Rounded MT Bold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnQuitter.ForeColor = Color.Black;
-            btnQuitter.Location = new Point(481, 503);
-            btnQuitter.Margin = new Padding(4, 5, 4, 5);
+            btnQuitter.Location = new Point(385, 402);
+            btnQuitter.Margin = new Padding(3, 4, 3, 4);
             btnQuitter.Name = "btnQuitter";
-            btnQuitter.Size = new Size(237, 83);
+            btnQuitter.Size = new Size(190, 66);
             btnQuitter.TabIndex = 4;
             btnQuitter.Text = "Quitter";
             btnQuitter.UseVisualStyleBackColor = false;
@@ -139,12 +138,12 @@
             btnClassement.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnClassement.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnClassement.FlatStyle = FlatStyle.Flat;
-            btnClassement.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClassement.Font = new Font("Arial Rounded MT Bold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClassement.ForeColor = Color.Black;
-            btnClassement.Location = new Point(906, 643);
-            btnClassement.Margin = new Padding(4, 5, 4, 5);
+            btnClassement.Location = new Point(705, 514);
+            btnClassement.Margin = new Padding(3, 4, 3, 4);
             btnClassement.Name = "btnClassement";
-            btnClassement.Size = new Size(206, 70);
+            btnClassement.Size = new Size(185, 56);
             btnClassement.TabIndex = 5;
             btnClassement.Text = "Classement";
             btnClassement.UseVisualStyleBackColor = false;
@@ -152,9 +151,10 @@
             // 
             // frmMenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(914, 600);
             Controls.Add(btnClassement);
             Controls.Add(btnQuitter);
             Controls.Add(btnNouvellePartie);
@@ -163,7 +163,7 @@
             Controls.Add(picBanane);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Banascape";
