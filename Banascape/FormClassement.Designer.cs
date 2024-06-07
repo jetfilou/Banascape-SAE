@@ -1,6 +1,6 @@
 ﻿namespace Banascape
 {
-    partial class frmNouvellePartie
+    partial class frmClassement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNouvellePartie));
             SuspendLayout();
             // 
-            // frmNouvellePartie
+            // frmClassement
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "frmNouvellePartie";
+            ClientSize = new Size(800, 450);
+            Name = "frmClassement";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Banascape";
+            Text = "Classement";
             ResumeLayout(false);
         }
 

@@ -20,15 +20,25 @@ namespace Banascape
         }
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)
-        { 
-            FormNouvellePartie frmNewPartie;
+        {
+            frmNouvellePartie frmNewPartie;
             // instanciation d'un objet de type FormJeu 
-            frmNewPartie = new FormNouvellePartie();
+            frmNewPartie = new frmNouvellePartie();
 
-                // ouverture du formulaire Nouvelle partie et fermeture de l'écran d'accueil
-                frmNewPartie.Show();
-                this.Hide();
-            
+            // ouverture du formulaire Nouvelle partie et fermeture de l'écran d'accueil
+            frmNewPartie.Show();
+            this.Hide();
+
+        }
+
+        private void btnClassement_Click(object sender, EventArgs e)
+        {
+            frmClassement frmClassement;
+            // instanciation d'un objet de type FormJeu 
+            frmClassement = new frmClassement();
+
+            // ouverture du formulaire Nouvelle partie et fermeture de l'écran d'accueil
+            frmClassement.Show();
         }
     }
 }

@@ -147,6 +147,7 @@
             btnClassement.TabIndex = 5;
             btnClassement.Text = "Classement";
             btnClassement.UseVisualStyleBackColor = false;
+            btnClassement.Click += btnClassement_Click;
             // 
             // frmMenuPrincipal
             // 

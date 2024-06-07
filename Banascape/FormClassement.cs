@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Banascape
 {
-    public partial class frmNouvellePartie : Form
+    public partial class frmClassement : Form
     {
-        public frmNouvellePartie()
+        public frmClassement()
         {
             InitializeComponent();
         }
