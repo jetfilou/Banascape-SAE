@@ -33,11 +33,12 @@
             // 
             // frmNouvellePartie
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
+            ClientSize = new Size(914, 600);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmNouvellePartie";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Banascape";

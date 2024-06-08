@@ -30,9 +30,13 @@
         {
             btnRetour = new Button();
             picMenuClassement = new PictureBox();
-            pictureBox1 = new PictureBox();
+            picTrophee = new PictureBox();
+            lblTop1 = new Label();
+            lblTop2 = new Label();
+            lblTop3 = new Label();
+            lblClassement = new Label();
             ((System.ComponentModel.ISupportInitialize)picMenuClassement).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picTrophee).BeginInit();
             SuspendLayout();
             // 
             // btnRetour
@@ -66,16 +70,60 @@
             picMenuClassement.TabIndex = 1;
             picMenuClassement.TabStop = false;
             // 
-            // pictureBox1
+            // picTrophee
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.trophee;
-            pictureBox1.Location = new Point(153, 32);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(95, 95);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            picTrophee.BackColor = Color.Transparent;
+            picTrophee.Image = Properties.Resources.trophee;
+            picTrophee.Location = new Point(153, 32);
+            picTrophee.Name = "picTrophee";
+            picTrophee.Size = new Size(95, 95);
+            picTrophee.SizeMode = PictureBoxSizeMode.Zoom;
+            picTrophee.TabIndex = 2;
+            picTrophee.TabStop = false;
+            // 
+            // lblTop1
+            // 
+            lblTop1.AutoSize = true;
+            lblTop1.BackColor = Color.Transparent;
+            lblTop1.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop1.Location = new Point(187, 200);
+            lblTop1.Name = "lblTop1";
+            lblTop1.Size = new Size(26, 27);
+            lblTop1.TabIndex = 3;
+            lblTop1.Text = "1";
+            // 
+            // lblTop2
+            // 
+            lblTop2.AutoSize = true;
+            lblTop2.BackColor = Color.Transparent;
+            lblTop2.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop2.Location = new Point(102, 280);
+            lblTop2.Name = "lblTop2";
+            lblTop2.Size = new Size(26, 27);
+            lblTop2.TabIndex = 4;
+            lblTop2.Text = "2";
+            // 
+            // lblTop3
+            // 
+            lblTop3.AutoSize = true;
+            lblTop3.BackColor = Color.Transparent;
+            lblTop3.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop3.Location = new Point(273, 280);
+            lblTop3.Name = "lblTop3";
+            lblTop3.Size = new Size(26, 27);
+            lblTop3.TabIndex = 5;
+            lblTop3.Text = "3";
+            // 
+            // lblClassement
+            // 
+            lblClassement.AutoSize = true;
+            lblClassement.BackColor = Color.Transparent;
+            lblClassement.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblClassement.Location = new Point(102, 149);
+            lblClassement.Name = "lblClassement";
+            lblClassement.Size = new Size(197, 23);
+            lblClassement.TabIndex = 6;
+            lblClassement.Text = "Classement - Top 3";
             // 
             // frmClassement
             // 
@@ -83,8 +131,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(401, 558);
+            Controls.Add(lblClassement);
+            Controls.Add(lblTop3);
+            Controls.Add(lblTop2);
+            Controls.Add(lblTop1);
             Controls.Add(btnRetour);
-            Controls.Add(pictureBox1);
+            Controls.Add(picTrophee);
             Controls.Add(picMenuClassement);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
@@ -92,14 +144,19 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Classement";
             ((System.ComponentModel.ISupportInitialize)picMenuClassement).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picTrophee).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnRetour;
         private PictureBox picMenuClassement;
-        private PictureBox pictureBox1;
+        private PictureBox picTrophee;
+        private Label lblTop1;
+        private Label lblTop2;
+        private Label lblTop3;
+        private Label lblClassement;
     }
 }
