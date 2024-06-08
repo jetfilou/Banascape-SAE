@@ -41,7 +41,6 @@
             // 
             // btnRetour
             // 
-            btnRetour.Anchor = AnchorStyles.Top;
             btnRetour.BackColor = Color.Transparent;
             btnRetour.BackgroundImage = Properties.Resources.bouton_retour;
             btnRetour.BackgroundImageLayout = ImageLayout.Zoom;
@@ -62,6 +61,7 @@
             // picMenuClassement
             // 
             picMenuClassement.BackColor = Color.Transparent;
+            picMenuClassement.Dock = DockStyle.Fill;
             picMenuClassement.Image = Properties.Resources.Menu_vierge;
             picMenuClassement.Location = new Point(0, 0);
             picMenuClassement.Name = "picMenuClassement";
