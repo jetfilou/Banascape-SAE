@@ -16,5 +16,13 @@ namespace Banascape
         {
             InitializeComponent();
         }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            frmMenuPrincipal frmMenuPrincipal;
+            frmMenuPrincipal = new frmMenuPrincipal();
+            frmMenuPrincipal.Show();
+            this.Close();
+        }
     }
 }

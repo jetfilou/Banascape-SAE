@@ -24,7 +24,7 @@ namespace Banascape
         private void btnNouvellePartie_Click(object sender, EventArgs e)
         {
             frmNouvellePartie frmNewPartie;
-            // instanciation d'un objet de type FormJeu 
+            // instanciation d'un objet de type FormNouvellePartie 
             frmNewPartie = new frmNouvellePartie();
 
             // ouverture du formulaire Nouvelle partie et fermeture de l'écran d'accueil
@@ -42,8 +42,7 @@ namespace Banascape
             }
             else
             {
-                // Si le formulaire de paramétrage n'est pas trouvé, créez-en un nouveau
-                frmClassement = new frmClassement(); // Changez "FormParametrage" par le constructeur de votre formulaire de paramétrage
+                frmClassement = new frmClassement();
                 frmClassement.Show();
             }
         }

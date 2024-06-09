@@ -83,6 +83,26 @@ namespace Banascape.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bouton_carre_play {
+            get {
+                object obj = ResourceManager.GetObject("bouton_carre_play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bouton_carre_quitter {
+            get {
+                object obj = ResourceManager.GetObject("bouton_carre_quitter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bouton_retour {
             get {
                 object obj = ResourceManager.GetObject("bouton_retour", resourceCulture);
@@ -116,6 +136,16 @@ namespace Banascape.Properties {
         internal static System.Drawing.Bitmap trophee {
             get {
                 object obj = ResourceManager.GetObject("trophee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vie {
+            get {
+                object obj = ResourceManager.GetObject("vie", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

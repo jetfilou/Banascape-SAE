@@ -12,9 +12,25 @@ namespace Banascape
 {
     public partial class frmInterfaceJeu : Form
     {
+        private FormMenuEchap formMenuEchap;
+
         public frmInterfaceJeu()
         {
             InitializeComponent();
+            formMenuEchap = new FormMenuEchap();
+            this.KeyDown += new KeyEventHandler(FormInterfaceJeu_KeyDown);
+            this.KeyPreview = true;
+        }
+
+        private void FormInterfaceJeu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (!formMenuEchap.Visible)
+                {
+                    formMenuEchap.Show();
+                }
+            }
         }
     }
 }

@@ -56,6 +56,7 @@
             btnRetour.Size = new Size(53, 52);
             btnRetour.TabIndex = 1;
             btnRetour.UseVisualStyleBackColor = false;
+            btnRetour.Click += btnRetour_Click;
             // 
             // btnLancer
             // 
@@ -85,7 +86,7 @@
             txtPseudo.BorderStyle = BorderStyle.FixedSingle;
             txtPseudo.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPseudo.Location = new Point(138, 184);
-            txtPseudo.MaxLength = 11;
+            txtPseudo.MaxLength = 10;
             txtPseudo.Name = "txtPseudo";
             txtPseudo.Size = new Size(151, 39);
             txtPseudo.TabIndex = 3;
@@ -125,11 +126,12 @@
             // 
             // cmbDifficulte
             // 
+            cmbDifficulte.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbDifficulte.FormattingEnabled = true;
             cmbDifficulte.Items.AddRange(new object[] { "Normal", "Difficile" });
             cmbDifficulte.Location = new Point(159, 320);
             cmbDifficulte.Name = "cmbDifficulte";
-            cmbDifficulte.Size = new Size(108, 28);
+            cmbDifficulte.Size = new Size(108, 34);
             cmbDifficulte.TabIndex = 11;
             // 
             // frmNouvellePartie
