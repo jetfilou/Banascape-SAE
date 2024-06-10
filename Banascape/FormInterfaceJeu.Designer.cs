@@ -28,19 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
+            this.labyrinthePanel = new System.Windows.Forms.Panel();
+            this.SuspendLayout();
+            // 
+            // labyrinthePanel
+            // 
+            this.labyrinthePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labyrinthePanel.Location = new System.Drawing.Point(0, 0);
+            this.labyrinthePanel.Name = "labyrinthePanel";
+            this.labyrinthePanel.Size = new System.Drawing.Size(914, 600);
+            this.labyrinthePanel.TabIndex = 0;
+            this.labyrinthePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
             // 
             // frmInterfaceJeu
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
-            Name = "frmInterfaceJeu";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Banascape";
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ControlBox = false;
+            this.Controls.Add(this.labyrinthePanel);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "frmInterfaceJeu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Banascape";
+            this.ResumeLayout(false);
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel labyrinthePanel;
     }
 }

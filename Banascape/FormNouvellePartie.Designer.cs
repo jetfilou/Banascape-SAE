@@ -139,6 +139,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(409, 481);
+            ControlBox = false;
             Controls.Add(cmbDifficulte);
             Controls.Add(lblPartie);
             Controls.Add(label2);

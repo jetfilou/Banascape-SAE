@@ -35,10 +35,9 @@ namespace Banascape
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
-            DialogResult resultat = MessageBox.Show("Voulez-vous vraiment quitter le jeu ?",
-                          "Confirmation",
-                          MessageBoxButtons.YesNo,
-                          MessageBoxIcon.Question);
+            DialogResult resultat = MessageBox.Show("Voulez-vous vraiment quitter le jeu ?", "Confirmation",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (resultat == DialogResult.Yes)
             {
                 this.Close();

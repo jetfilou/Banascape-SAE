@@ -155,6 +155,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(914, 600);
+            ControlBox = false;
             Controls.Add(btnClassement);
             Controls.Add(btnQuitter);
             Controls.Add(btnNouvellePartie);
