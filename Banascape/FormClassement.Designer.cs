@@ -73,6 +73,7 @@
             lblTop1.AutoSize = true;
             lblTop1.BackColor = Color.Transparent;
             lblTop1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop1.ForeColor = Color.White;
             lblTop1.Location = new Point(153, 150);
             lblTop1.Name = "lblTop1";
             lblTop1.Size = new Size(21, 24);
@@ -84,6 +85,7 @@
             lblTop2.AutoSize = true;
             lblTop2.BackColor = Color.Transparent;
             lblTop2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop2.ForeColor = Color.White;
             lblTop2.Location = new Point(82, 210);
             lblTop2.Name = "lblTop2";
             lblTop2.Size = new Size(21, 24);
@@ -95,6 +97,7 @@
             lblTop3.AutoSize = true;
             lblTop3.BackColor = Color.Transparent;
             lblTop3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop3.ForeColor = Color.White;
             lblTop3.Location = new Point(225, 210);
             lblTop3.Name = "lblTop3";
             lblTop3.Size = new Size(21, 24);
@@ -106,6 +109,7 @@
             lblClassement.AutoSize = true;
             lblClassement.BackColor = Color.Transparent;
             lblClassement.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblClassement.ForeColor = Color.White;
             lblClassement.Location = new Point(82, 112);
             lblClassement.Name = "lblClassement";
             lblClassement.Size = new Size(164, 20);
