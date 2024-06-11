@@ -31,7 +31,7 @@
             lblMenu = new Label();
             btnJouer = new Button();
             btnQuitter = new Button();
-            button1 = new Button();
+            btnRetourMenuPrincipal = new Button();
             SuspendLayout();
             // 
             // lblMenu
@@ -41,9 +41,10 @@
             lblMenu.BackColor = Color.Transparent;
             lblMenu.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMenu.ForeColor = Color.White;
-            lblMenu.Location = new Point(103, 326);
+            lblMenu.Location = new Point(147, 543);
+            lblMenu.Margin = new Padding(4, 0, 4, 0);
             lblMenu.Name = "lblMenu";
-            lblMenu.Size = new Size(115, 37);
+            lblMenu.Size = new Size(170, 55);
             lblMenu.TabIndex = 4;
             lblMenu.Text = "MENU";
             // 
@@ -59,10 +60,9 @@
             btnJouer.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnJouer.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnJouer.FlatStyle = FlatStyle.Flat;
-            btnJouer.Location = new Point(123, 33);
-            btnJouer.Margin = new Padding(2);
+            btnJouer.Location = new Point(176, 55);
             btnJouer.Name = "btnJouer";
-            btnJouer.Size = new Size(78, 66);
+            btnJouer.Size = new Size(111, 110);
             btnJouer.TabIndex = 5;
             btnJouer.UseVisualStyleBackColor = false;
             btnJouer.Click += btnPlay_Click;
@@ -79,48 +79,47 @@
             btnQuitter.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnQuitter.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnQuitter.FlatStyle = FlatStyle.Flat;
-            btnQuitter.Location = new Point(123, 199);
-            btnQuitter.Margin = new Padding(2);
+            btnQuitter.Location = new Point(176, 332);
             btnQuitter.Name = "btnQuitter";
-            btnQuitter.Size = new Size(78, 66);
+            btnQuitter.Size = new Size(111, 110);
             btnQuitter.TabIndex = 6;
             btnQuitter.UseVisualStyleBackColor = false;
             btnQuitter.Click += btnQuitter_Click;
             // 
-            // button1
+            // btnRetourMenuPrincipal
             // 
-            button1.Anchor = AnchorStyles.Top;
-            button1.BackColor = Color.Transparent;
-            button1.BackgroundImage = Properties.Resources.bouton_retour;
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.Cursor = Cursors.PanNW;
-            button1.FlatAppearance.BorderColor = Color.White;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(123, 117);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(78, 66);
-            button1.TabIndex = 7;
-            button1.UseVisualStyleBackColor = false;
+            btnRetourMenuPrincipal.Anchor = AnchorStyles.Top;
+            btnRetourMenuPrincipal.BackColor = Color.Transparent;
+            btnRetourMenuPrincipal.BackgroundImage = Properties.Resources.bouton_retour;
+            btnRetourMenuPrincipal.BackgroundImageLayout = ImageLayout.Zoom;
+            btnRetourMenuPrincipal.Cursor = Cursors.PanNW;
+            btnRetourMenuPrincipal.FlatAppearance.BorderColor = Color.White;
+            btnRetourMenuPrincipal.FlatAppearance.BorderSize = 0;
+            btnRetourMenuPrincipal.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnRetourMenuPrincipal.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnRetourMenuPrincipal.FlatStyle = FlatStyle.Flat;
+            btnRetourMenuPrincipal.Location = new Point(176, 195);
+            btnRetourMenuPrincipal.Name = "btnRetourMenuPrincipal";
+            btnRetourMenuPrincipal.Size = new Size(111, 110);
+            btnRetourMenuPrincipal.TabIndex = 7;
+            btnRetourMenuPrincipal.UseVisualStyleBackColor = false;
+            btnRetourMenuPrincipal.Click += btnRetourMenuPrincipal_Click;
             // 
             // FormMenuEchap
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             BackgroundImage = Properties.Resources.Menu_vierge;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(321, 383);
-            Controls.Add(button1);
+            ClientSize = new Size(459, 638);
+            Controls.Add(btnRetourMenuPrincipal);
             Controls.Add(btnQuitter);
             Controls.Add(btnJouer);
             Controls.Add(lblMenu);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "FormMenuEchap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMenuEchap";
@@ -132,6 +131,6 @@
         private Label lblMenu;
         private Button btnJouer;
         private Button btnQuitter;
-        private Button button1;
+        private Button btnRetourMenuPrincipal;
     }
 }

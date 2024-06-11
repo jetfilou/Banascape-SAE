@@ -30,7 +30,7 @@ namespace Banascape
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         };
 
-        private const int tailleImage = 30;
+        private const int tailleImage = 60;
 
         public frmInterfaceJeu()
         {

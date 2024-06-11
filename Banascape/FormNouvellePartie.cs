@@ -24,5 +24,16 @@ namespace Banascape
             frmMenuPrincipal.Show();
             this.Close();
         }
+        private void btnLancer_Click(object sender, EventArgs e)
+        {
+            frmInterfaceJeu frmjeu;
+            // instanciation d'un objet de type FormInterfaceJeu 
+            frmjeu = new frmInterfaceJeu();
+
+            // ouverture du Jeu
+            frmjeu.Show();
+            this.Hide();
+
+        }
     }
 }

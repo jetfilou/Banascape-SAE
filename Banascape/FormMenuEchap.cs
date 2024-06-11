@@ -40,8 +40,21 @@ namespace Banascape
 
             if (resultat == DialogResult.Yes)
             {
+                Application.Exit();
+            }
+        }
+
+        private void btnRetourMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            DialogResult resultat = MessageBox.Show("Voulez-vous vraiment retourner au menu Principal ?", "Confirmation",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultat == DialogResult.Yes)
+            {
                 this.Close();
+                Application.OpenForms["frmMenuPrincipal"]?.Show();
                 Application.OpenForms["frmInterfaceJeu"]?.Close();
+                
             }
         }
     }
