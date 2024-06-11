@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             btnRetour = new Button();
-            picMenuClassement = new PictureBox();
             picTrophee = new PictureBox();
             lblTop1 = new Label();
             lblTop2 = new Label();
             lblTop3 = new Label();
             lblClassement = new Label();
-            ((System.ComponentModel.ISupportInitialize)picMenuClassement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picTrophee).BeginInit();
             SuspendLayout();
             // 
@@ -50,33 +48,22 @@
             btnRetour.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnRetour.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnRetour.FlatStyle = FlatStyle.Flat;
-            btnRetour.Location = new Point(165, 464);
+            btnRetour.Location = new Point(133, 348);
             btnRetour.Margin = new Padding(2);
             btnRetour.Name = "btnRetour";
-            btnRetour.Size = new Size(70, 70);
+            btnRetour.Size = new Size(61, 52);
             btnRetour.TabIndex = 0;
             btnRetour.UseVisualStyleBackColor = false;
             btnRetour.Click += btnRetour_Click;
-            // 
-            // picMenuClassement
-            // 
-            picMenuClassement.BackColor = Color.Transparent;
-            picMenuClassement.Dock = DockStyle.Fill;
-            picMenuClassement.Image = Properties.Resources.Menu_vierge;
-            picMenuClassement.Location = new Point(0, 0);
-            picMenuClassement.Name = "picMenuClassement";
-            picMenuClassement.Size = new Size(401, 558);
-            picMenuClassement.SizeMode = PictureBoxSizeMode.StretchImage;
-            picMenuClassement.TabIndex = 1;
-            picMenuClassement.TabStop = false;
             // 
             // picTrophee
             // 
             picTrophee.BackColor = Color.Transparent;
             picTrophee.Image = Properties.Resources.trophee;
-            picTrophee.Location = new Point(153, 32);
+            picTrophee.Location = new Point(122, 24);
+            picTrophee.Margin = new Padding(3, 2, 3, 2);
             picTrophee.Name = "picTrophee";
-            picTrophee.Size = new Size(95, 95);
+            picTrophee.Size = new Size(83, 71);
             picTrophee.SizeMode = PictureBoxSizeMode.Zoom;
             picTrophee.TabIndex = 2;
             picTrophee.TabStop = false;
@@ -85,10 +72,10 @@
             // 
             lblTop1.AutoSize = true;
             lblTop1.BackColor = Color.Transparent;
-            lblTop1.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTop1.Location = new Point(187, 200);
+            lblTop1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop1.Location = new Point(153, 150);
             lblTop1.Name = "lblTop1";
-            lblTop1.Size = new Size(26, 27);
+            lblTop1.Size = new Size(21, 24);
             lblTop1.TabIndex = 3;
             lblTop1.Text = "1";
             // 
@@ -96,10 +83,10 @@
             // 
             lblTop2.AutoSize = true;
             lblTop2.BackColor = Color.Transparent;
-            lblTop2.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTop2.Location = new Point(102, 280);
+            lblTop2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop2.Location = new Point(82, 210);
             lblTop2.Name = "lblTop2";
-            lblTop2.Size = new Size(26, 27);
+            lblTop2.Size = new Size(21, 24);
             lblTop2.TabIndex = 4;
             lblTop2.Text = "2";
             // 
@@ -107,10 +94,10 @@
             // 
             lblTop3.AutoSize = true;
             lblTop3.BackColor = Color.Transparent;
-            lblTop3.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTop3.Location = new Point(273, 280);
+            lblTop3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTop3.Location = new Point(225, 210);
             lblTop3.Name = "lblTop3";
-            lblTop3.Size = new Size(26, 27);
+            lblTop3.Size = new Size(21, 24);
             lblTop3.TabIndex = 5;
             lblTop3.Text = "3";
             // 
@@ -118,32 +105,33 @@
             // 
             lblClassement.AutoSize = true;
             lblClassement.BackColor = Color.Transparent;
-            lblClassement.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblClassement.Location = new Point(102, 149);
+            lblClassement.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblClassement.Location = new Point(82, 112);
             lblClassement.Name = "lblClassement";
-            lblClassement.Size = new Size(197, 23);
+            lblClassement.Size = new Size(164, 20);
             lblClassement.TabIndex = 6;
             lblClassement.Text = "Classement - Top 3";
             // 
             // frmClassement
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(401, 558);
+            BackgroundImage = Properties.Resources.Menu_vierge;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(328, 418);
             Controls.Add(lblClassement);
             Controls.Add(lblTop3);
             Controls.Add(lblTop2);
             Controls.Add(lblTop1);
             Controls.Add(btnRetour);
             Controls.Add(picTrophee);
-            Controls.Add(picMenuClassement);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "frmClassement";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Classement";
-            ((System.ComponentModel.ISupportInitialize)picMenuClassement).EndInit();
             ((System.ComponentModel.ISupportInitialize)picTrophee).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -152,7 +140,6 @@
         #endregion
 
         private Button btnRetour;
-        private PictureBox picMenuClassement;
         private PictureBox picTrophee;
         private Label lblTop1;
         private Label lblTop2;

@@ -28,26 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            picMenuEchap = new PictureBox();
             lblMenu = new Label();
             btnJouer = new Button();
             btnQuitter = new Button();
             button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)picMenuEchap).BeginInit();
             SuspendLayout();
-            // 
-            // picMenuEchap
-            // 
-            picMenuEchap.BackColor = Color.Transparent;
-            picMenuEchap.Dock = DockStyle.Fill;
-            picMenuEchap.Image = Properties.Resources.Menu_vierge;
-            picMenuEchap.Location = new Point(0, 0);
-            picMenuEchap.Margin = new Padding(3, 2, 3, 2);
-            picMenuEchap.Name = "picMenuEchap";
-            picMenuEchap.Size = new Size(335, 383);
-            picMenuEchap.SizeMode = PictureBoxSizeMode.StretchImage;
-            picMenuEchap.TabIndex = 2;
-            picMenuEchap.TabStop = false;
             // 
             // lblMenu
             // 
@@ -56,7 +41,7 @@
             lblMenu.BackColor = Color.Transparent;
             lblMenu.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMenu.ForeColor = Color.White;
-            lblMenu.Location = new Point(106, 326);
+            lblMenu.Location = new Point(103, 326);
             lblMenu.Name = "lblMenu";
             lblMenu.Size = new Size(115, 37);
             lblMenu.TabIndex = 4;
@@ -74,7 +59,7 @@
             btnJouer.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnJouer.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnJouer.FlatStyle = FlatStyle.Flat;
-            btnJouer.Location = new Point(130, 33);
+            btnJouer.Location = new Point(123, 33);
             btnJouer.Margin = new Padding(2);
             btnJouer.Name = "btnJouer";
             btnJouer.Size = new Size(78, 66);
@@ -94,7 +79,7 @@
             btnQuitter.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnQuitter.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnQuitter.FlatStyle = FlatStyle.Flat;
-            btnQuitter.Location = new Point(130, 199);
+            btnQuitter.Location = new Point(123, 199);
             btnQuitter.Margin = new Padding(2);
             btnQuitter.Name = "btnQuitter";
             btnQuitter.Size = new Size(78, 66);
@@ -114,7 +99,7 @@
             button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(130, 117);
+            button1.Location = new Point(123, 117);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(78, 66);
@@ -126,26 +111,24 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(335, 383);
+            BackgroundImage = Properties.Resources.Menu_vierge;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(321, 383);
             Controls.Add(button1);
             Controls.Add(btnQuitter);
             Controls.Add(btnJouer);
             Controls.Add(lblMenu);
-            Controls.Add(picMenuEchap);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormMenuEchap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMenuEchap";
-            ((System.ComponentModel.ISupportInitialize)picMenuEchap).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox picMenuEchap;
         private Label lblMenu;
         private Button btnJouer;
         private Button btnQuitter;
