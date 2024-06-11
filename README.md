@@ -4,4 +4,4 @@
 
 -détails visuels -> (rechargement map & vitesse déplacement)
 
--ajout des objets & ennemis
+-ajout des objets & ennemis & vie
