@@ -32,9 +32,8 @@
             lblMenu = new Label();
             btnJouer = new Button();
             btnQuitter = new Button();
-            picVie = new PictureBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)picMenuEchap).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picVie).BeginInit();
             SuspendLayout();
             // 
             // picMenuEchap
@@ -43,8 +42,9 @@
             picMenuEchap.Dock = DockStyle.Fill;
             picMenuEchap.Image = Properties.Resources.Menu_vierge;
             picMenuEchap.Location = new Point(0, 0);
+            picMenuEchap.Margin = new Padding(3, 2, 3, 2);
             picMenuEchap.Name = "picMenuEchap";
-            picMenuEchap.Size = new Size(383, 511);
+            picMenuEchap.Size = new Size(335, 383);
             picMenuEchap.SizeMode = PictureBoxSizeMode.StretchImage;
             picMenuEchap.TabIndex = 2;
             picMenuEchap.TabStop = false;
@@ -54,11 +54,11 @@
             lblMenu.Anchor = AnchorStyles.Top;
             lblMenu.AutoSize = true;
             lblMenu.BackColor = Color.Transparent;
-            lblMenu.Font = new Font("Circular Std Medium", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMenu.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMenu.ForeColor = Color.White;
-            lblMenu.Location = new Point(121, 434);
+            lblMenu.Location = new Point(106, 326);
             lblMenu.Name = "lblMenu";
-            lblMenu.Size = new Size(145, 51);
+            lblMenu.Size = new Size(115, 37);
             lblMenu.TabIndex = 4;
             lblMenu.Text = "MENU";
             // 
@@ -74,10 +74,10 @@
             btnJouer.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnJouer.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnJouer.FlatStyle = FlatStyle.Flat;
-            btnJouer.Location = new Point(148, 44);
+            btnJouer.Location = new Point(130, 33);
             btnJouer.Margin = new Padding(2);
             btnJouer.Name = "btnJouer";
-            btnJouer.Size = new Size(89, 88);
+            btnJouer.Size = new Size(78, 66);
             btnJouer.TabIndex = 5;
             btnJouer.UseVisualStyleBackColor = false;
             btnJouer.Click += btnPlay_Click;
@@ -94,44 +94,51 @@
             btnQuitter.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnQuitter.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnQuitter.FlatStyle = FlatStyle.Flat;
-            btnQuitter.Location = new Point(148, 156);
+            btnQuitter.Location = new Point(130, 199);
             btnQuitter.Margin = new Padding(2);
             btnQuitter.Name = "btnQuitter";
-            btnQuitter.Size = new Size(89, 88);
+            btnQuitter.Size = new Size(78, 66);
             btnQuitter.TabIndex = 6;
             btnQuitter.UseVisualStyleBackColor = false;
             btnQuitter.Click += btnQuitter_Click;
             // 
-            // picVie
+            // button1
             // 
-            picVie.Anchor = AnchorStyles.Top;
-            picVie.BackColor = Color.Transparent;
-            picVie.Image = Properties.Resources.vie;
-            picVie.Location = new Point(106, 283);
-            picVie.Name = "picVie";
-            picVie.Size = new Size(160, 71);
-            picVie.SizeMode = PictureBoxSizeMode.Zoom;
-            picVie.TabIndex = 7;
-            picVie.TabStop = false;
+            button1.Anchor = AnchorStyles.Top;
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = Properties.Resources.bouton_retour;
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.Cursor = Cursors.PanNW;
+            button1.FlatAppearance.BorderColor = Color.White;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(130, 117);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(78, 66);
+            button1.TabIndex = 7;
+            button1.UseVisualStyleBackColor = false;
             // 
             // FormMenuEchap
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(383, 511);
-            Controls.Add(picVie);
+            ClientSize = new Size(335, 383);
+            Controls.Add(button1);
             Controls.Add(btnQuitter);
             Controls.Add(btnJouer);
             Controls.Add(lblMenu);
             Controls.Add(picMenuEchap);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMenuEchap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMenuEchap";
             ((System.ComponentModel.ISupportInitialize)picMenuEchap).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picVie).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,6 +149,6 @@
         private Label lblMenu;
         private Button btnJouer;
         private Button btnQuitter;
-        private PictureBox picVie;
+        private Button button1;
     }
 }

@@ -7,13 +7,11 @@ namespace Banascape
     public partial class frmInterfaceJeu : Form
     {
         private FormMenuEchap formMenuEchap;
-        private const int tailleCase = 30;
         private const int largeurLabyrinthe = 10;
         private const int longueurLabyrinthe = 10;
         private int positionVerticaleJoueur = 1;
         private int positionHorizontaleJoueur = 1;
 
-        // Déclarez les images en tant que champs de classe
         private Image mur;
         private Image sol;
         private Image joueur;
@@ -32,7 +30,7 @@ namespace Banascape
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         };
 
-        private const int tailleImage = 60;
+        private const int tailleImage = 30;
 
         public frmInterfaceJeu()
         {
@@ -68,7 +66,7 @@ namespace Banascape
         {
             Graphics g = e.Graphics;
 
-            // Calculer les décalages pour centrer le labyrinthe
+
             int offsetX = (this.ClientSize.Width - (longueurLabyrinthe * tailleImage)) / 2;
             int offsetY = (this.ClientSize.Height - (largeurLabyrinthe * tailleImage)) / 2;
 
