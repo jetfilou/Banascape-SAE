@@ -133,6 +133,46 @@ namespace Banascape.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clef {
+            get {
+                object obj = ResourceManager.GetObject("clef", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clef_vide {
+            get {
+                object obj = ResourceManager.GetObject("clef vide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coeur_plein {
+            get {
+                object obj = ResourceManager.GetObject("coeur-plein", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coeur_vide {
+            get {
+                object obj = ResourceManager.GetObject("coeur-vide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ennemi {
             get {
                 object obj = ResourceManager.GetObject("ennemi", resourceCulture);
@@ -163,9 +203,19 @@ namespace Banascape.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Porte {
+        internal static System.Drawing.Bitmap porte_ouverte {
             get {
-                object obj = ResourceManager.GetObject("Porte", resourceCulture);
+                object obj = ResourceManager.GetObject("porte_ouverte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap porte_refaite {
+            get {
+                object obj = ResourceManager.GetObject("porte_refaite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,12 +28,13 @@ namespace Banascape
         {
             frmInterfaceJeu frmjeu;
             // instanciation d'un objet de type FormInterfaceJeu 
-            frmjeu = new frmInterfaceJeu();
+            frmjeu = new frmInterfaceJeu(txtPseudo.Text,true);
 
             // ouverture du Jeu
-            frmjeu.Show();
+            frmjeu.ShowDialog();
             this.Hide();
 
         }
+
     }
 }

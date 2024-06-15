@@ -157,7 +157,22 @@
   <data name="bouton_retour1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bouton_retour1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Porte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\10528811-chateau-porte-pixel-art-gratuit-vectoriel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clef" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clef.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porte_ouverte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porte_ouverte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porte_refaite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porte_refaite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clef vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clef (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coeur-plein" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-clipart-heart-pixel-art-pixel-flag-text-thumbnail-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coeur-vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-clipart-heart-pixel-art-pixel-flag-text-thumbnail-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
