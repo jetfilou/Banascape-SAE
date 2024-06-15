@@ -19,13 +19,13 @@ namespace Banascape
         private int[,] labyrinthe = new int[largeurLabyrinthe, longueurLabyrinthe]
         {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 1, 1, 1, 1, 1, 1, 0, 1},
-            {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
+            {1, 0, 0, 0, 0, 1, 0, 0, 0, 1},
+            {1, 0, 1, 1, 1, 1, 0, 1, 0, 1},
+            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1},
             {1, 0, 1, 0, 1, 1, 0, 1, 0, 1},
-            {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-            {1, 0, 1, 1, 0, 1, 1, 1, 0, 1},
-            {1, 0, 1, 0, 0, 1, 1, 1, 0, 1},
+            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1},
+            {1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
+            {1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
             {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         };
@@ -70,21 +70,29 @@ namespace Banascape
             int offsetX = (this.ClientSize.Width - (longueurLabyrinthe * tailleImage)) / 2;
             int offsetY = (this.ClientSize.Height - (largeurLabyrinthe * tailleImage)) / 2;
 
+            Rectangle zoneDessin = e.ClipRectangle;
+
             for (int r = 0; r < largeurLabyrinthe; r++)
             {
                 for (int c = 0; c < longueurLabyrinthe; c++)
                 {
-                    Image texture = labyrinthe[r, c] == 1 ? mur : sol;
-                    // Dessiner l'image avec la nouvelle taille
-                    g.DrawImage(texture, offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
+                    Rectangle celluleRectangle = new Rectangle(offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
+
+                    //On vérie si la cellule est dans la zone à redessiner
+                    if (zoneDessin.IntersectsWith(celluleRectangle))
+                    {
+                        Image texture = labyrinthe[r, c] == 1 ? mur : sol;
+                        g.DrawImage(texture, celluleRectangle);
+                    }
                 }
             }
 
-            // Dessiner le joueur avec la nouvelle taille
-            g.DrawImage(joueur, offsetX + positionHorizontaleJoueur * tailleImage, offsetY + positionVerticaleJoueur * tailleImage, tailleImage, tailleImage);
+            // Dessiner le joueur dans la nouvelle cellule
+            Rectangle joueurCellule = new Rectangle(offsetX + positionHorizontaleJoueur * tailleImage, offsetY + positionVerticaleJoueur * tailleImage, tailleImage, tailleImage);
+            g.DrawImage(joueur, joueurCellule);
         }
 
-        private void DeplacerJoueur(KeyEventArgs e)
+            private void DeplacerJoueur(KeyEventArgs e)
         {
             int nouvellePositionVerticale = positionVerticaleJoueur;
             int nouvellePositionHorizontale = positionHorizontaleJoueur;
@@ -107,9 +115,22 @@ namespace Banascape
 
             if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < largeurLabyrinthe && nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < longueurLabyrinthe && labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
             {
+                // Mémoriser l'ancienne position du joueur pour pouvoir la redessiner ensuite
+                int anciennePositionVerticale = positionVerticaleJoueur;
+                int anciennePositionHorizontale = positionHorizontaleJoueur;
+
                 positionVerticaleJoueur = nouvellePositionVerticale;
                 positionHorizontaleJoueur = nouvellePositionHorizontale;
-                labyrinthePanel.Invalidate(); // Redessiner le panel
+
+                int offsetX = (this.ClientSize.Width - (longueurLabyrinthe * tailleImage)) / 2;
+                int offsetY = (this.ClientSize.Height - (largeurLabyrinthe * tailleImage)) / 2;
+                Rectangle ancienneCellule = new Rectangle(offsetX + anciennePositionHorizontale * tailleImage, offsetY + anciennePositionVerticale * tailleImage, tailleImage, tailleImage);
+                Rectangle nouvelleCellule = new Rectangle(offsetX + nouvellePositionHorizontale * tailleImage, offsetY + nouvellePositionVerticale * tailleImage, tailleImage, tailleImage);
+
+                // Redessiner l'ancienne et la nouvelle cellule
+                labyrinthePanel.Invalidate(ancienneCellule);
+                labyrinthePanel.Invalidate(nouvelleCellule);
+
             }
         }
     }
