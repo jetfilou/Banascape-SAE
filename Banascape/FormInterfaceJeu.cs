@@ -7,29 +7,17 @@ namespace Banascape
     public partial class frmInterfaceJeu : Form
     {
         private FormMenuEchap formMenuEchap;
-        private const int largeurLabyrinthe = 12;
-        private const int longueurLabyrinthe = 17;
+
         private int positionVerticaleJoueur = 1;
         private int positionHorizontaleJoueur = 1;
 
         private Image mur;
         private Image joueur;
+        private Image clef;
+        private Image porte;
 
-        private int[,] labyrinthe = new int[largeurLabyrinthe, longueurLabyrinthe]
-        {
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1},
-            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
-            {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        };
+
+        Partie partie = new Partie("pedro",20,20);
 
         private const int tailleImage = 60;
 
@@ -42,6 +30,9 @@ namespace Banascape
 
             mur = Properties.Resources.mur;
             joueur = Properties.Resources.Banane;
+            clef = Properties.Resources.trophee;
+            porte = Properties.Resources.Porte;
+            this.ClientSize = new Size(tailleImage * partie.Longueur, tailleImage * partie.Largeur);
         }
 
         private void FormInterfaceJeu_KeyDown(object sender, KeyEventArgs e)
@@ -67,22 +58,26 @@ namespace Banascape
             Graphics g = e.Graphics;
 
 
-            int offsetX = (this.ClientSize.Width - (longueurLabyrinthe * tailleImage)) / 2;
-            int offsetY = (this.ClientSize.Height - (largeurLabyrinthe * tailleImage)) / 2;
+            int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
+            int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
 
             Rectangle zoneDessin = e.ClipRectangle;
 
-            for (int r = 0; r < largeurLabyrinthe; r++)
+            for (int r = 0; r < partie.Largeur; r++)
             {
-                for (int c = 0; c < longueurLabyrinthe; c++)
+                for (int c = 0; c < partie.Longueur; c++)
                 {
                     Rectangle celluleRectangle = new Rectangle(offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
 
                     //On vérie si la cellule est dans la zone à redessiner
                     if (zoneDessin.IntersectsWith(celluleRectangle))
                     {
-                        if(labyrinthe[r, c] == 1)
+                        if(partie.Labyrinthe[r, c] == 1)
                             g.DrawImage(mur, celluleRectangle);
+                        if (partie.Labyrinthe[r, c] == 2)
+                            g.DrawImage(clef, celluleRectangle);
+                        if (partie.Labyrinthe[r, c] == 3)
+                            g.DrawImage(porte, celluleRectangle);
                     }
                 }
             }
@@ -113,7 +108,7 @@ namespace Banascape
                     break;
             }
 
-            if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < largeurLabyrinthe && nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < longueurLabyrinthe && labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
+            if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur && nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur && partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
             {
                 // Mémoriser l'ancienne position du joueur pour pouvoir la redessiner ensuite
                 int anciennePositionVerticale = positionVerticaleJoueur;
@@ -122,8 +117,8 @@ namespace Banascape
                 positionVerticaleJoueur = nouvellePositionVerticale;
                 positionHorizontaleJoueur = nouvellePositionHorizontale;
 
-                int offsetX = (this.ClientSize.Width - (longueurLabyrinthe * tailleImage)) / 2;
-                int offsetY = (this.ClientSize.Height - (largeurLabyrinthe * tailleImage)) / 2;
+                int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
+                int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
                 Rectangle ancienneCellule = new Rectangle(offsetX + anciennePositionHorizontale * tailleImage, offsetY + anciennePositionVerticale * tailleImage, tailleImage, tailleImage);
                 Rectangle nouvelleCellule = new Rectangle(offsetX + nouvellePositionHorizontale * tailleImage, offsetY + nouvellePositionVerticale * tailleImage, tailleImage, tailleImage);
 

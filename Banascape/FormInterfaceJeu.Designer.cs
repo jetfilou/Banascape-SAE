@@ -37,20 +37,21 @@
             labyrinthePanel.BackgroundImageLayout = ImageLayout.Zoom;
             labyrinthePanel.Dock = DockStyle.Fill;
             labyrinthePanel.Location = new Point(0, 0);
-            labyrinthePanel.Margin = new Padding(4);
+            labyrinthePanel.Margin = new Padding(3, 2, 3, 2);
             labyrinthePanel.Name = "labyrinthePanel";
-            labyrinthePanel.Size = new Size(1142, 750);
+            labyrinthePanel.Size = new Size(1924, 1115);
             labyrinthePanel.TabIndex = 0;
             labyrinthePanel.Paint += OnPaint;
             // 
             // frmInterfaceJeu
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1142, 750);
+            AutoSize = true;
+            ClientSize = new Size(1924, 1115);
             ControlBox = false;
             Controls.Add(labyrinthePanel);
-            Margin = new Padding(2);
+            Margin = new Padding(1);
             Name = "frmInterfaceJeu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Banascape";
