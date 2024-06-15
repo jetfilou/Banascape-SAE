@@ -28,30 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labyrinthePanel = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            labyrinthePanel = new Panel();
+            SuspendLayout();
             // 
             // labyrinthePanel
             // 
-            this.labyrinthePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labyrinthePanel.Location = new System.Drawing.Point(0, 0);
-            this.labyrinthePanel.Name = "labyrinthePanel";
-            this.labyrinthePanel.Size = new System.Drawing.Size(914, 600);
-            this.labyrinthePanel.TabIndex = 0;
-            this.labyrinthePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
+            labyrinthePanel.BackColor = Color.Black;
+            labyrinthePanel.BackgroundImageLayout = ImageLayout.Zoom;
+            labyrinthePanel.Dock = DockStyle.Fill;
+            labyrinthePanel.Location = new Point(0, 0);
+            labyrinthePanel.Margin = new Padding(4);
+            labyrinthePanel.Name = "labyrinthePanel";
+            labyrinthePanel.Size = new Size(1142, 750);
+            labyrinthePanel.TabIndex = 0;
+            labyrinthePanel.Paint += OnPaint;
             // 
             // frmInterfaceJeu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
-            this.ControlBox = false;
-            this.Controls.Add(this.labyrinthePanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmInterfaceJeu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Banascape";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1142, 750);
+            ControlBox = false;
+            Controls.Add(labyrinthePanel);
+            Margin = new Padding(2);
+            Name = "frmInterfaceJeu";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Banascape";
+            ResumeLayout(false);
         }
 
         #endregion

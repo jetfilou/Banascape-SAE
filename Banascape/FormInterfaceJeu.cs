@@ -7,27 +7,28 @@ namespace Banascape
     public partial class frmInterfaceJeu : Form
     {
         private FormMenuEchap formMenuEchap;
-        private const int largeurLabyrinthe = 10;
-        private const int longueurLabyrinthe = 10;
+        private const int largeurLabyrinthe = 12;
+        private const int longueurLabyrinthe = 17;
         private int positionVerticaleJoueur = 1;
         private int positionHorizontaleJoueur = 1;
 
         private Image mur;
-        private Image sol;
         private Image joueur;
 
         private int[,] labyrinthe = new int[largeurLabyrinthe, longueurLabyrinthe]
         {
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 0, 1, 0, 0, 0, 1},
-            {1, 0, 1, 1, 1, 1, 0, 1, 0, 1},
-            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1},
-            {1, 0, 1, 0, 1, 1, 0, 1, 0, 1},
-            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1},
-            {1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
-            {1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1},
+            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
+            {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         };
 
         private const int tailleImage = 60;
@@ -40,7 +41,6 @@ namespace Banascape
             this.KeyPreview = true;
 
             mur = Properties.Resources.mur;
-            sol = Properties.Resources.sol;
             joueur = Properties.Resources.Banane;
         }
 
@@ -57,7 +57,7 @@ namespace Banascape
             {
                 if (e.KeyCode == Keys.Z || e.KeyCode == Keys.Q || e.KeyCode == Keys.S || e.KeyCode == Keys.D)
                 {
-                    DeplacerJoueur(e);
+                    DeplacerJoueur(e);                 
                 }
             }
         }
@@ -81,8 +81,8 @@ namespace Banascape
                     //On vérie si la cellule est dans la zone à redessiner
                     if (zoneDessin.IntersectsWith(celluleRectangle))
                     {
-                        Image texture = labyrinthe[r, c] == 1 ? mur : sol;
-                        g.DrawImage(texture, celluleRectangle);
+                        if(labyrinthe[r, c] == 1)
+                            g.DrawImage(mur, celluleRectangle);
                     }
                 }
             }
@@ -93,7 +93,7 @@ namespace Banascape
         }
 
             private void DeplacerJoueur(KeyEventArgs e)
-        {
+        {    
             int nouvellePositionVerticale = positionVerticaleJoueur;
             int nouvellePositionHorizontale = positionHorizontaleJoueur;
 
