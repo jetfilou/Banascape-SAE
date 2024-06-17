@@ -32,11 +32,13 @@
             lblPoint = new Label();
             lblNiveau = new Label();
             panel1 = new Panel();
+            picObjet = new PictureBox();
             picCoeur2 = new PictureBox();
             picCoeur1 = new PictureBox();
             picClef = new PictureBox();
             labyrinthePanel.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picObjet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picCoeur2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picCoeur1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picClef).BeginInit();
@@ -90,6 +92,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(224, 224, 224);
+            panel1.Controls.Add(picObjet);
             panel1.Controls.Add(picCoeur2);
             panel1.Controls.Add(picCoeur1);
             panel1.Controls.Add(picClef);
@@ -98,6 +101,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1924, 62);
             panel1.TabIndex = 5;
+            // 
+            // picObjet
+            // 
+            picObjet.BackColor = Color.LightGray;
+            picObjet.Dock = DockStyle.Right;
+            picObjet.Location = new Point(1804, 0);
+            picObjet.MaximumSize = new Size(60, 60);
+            picObjet.Name = "picObjet";
+            picObjet.Size = new Size(60, 60);
+            picObjet.SizeMode = PictureBoxSizeMode.StretchImage;
+            picObjet.TabIndex = 5;
+            picObjet.TabStop = false;
             // 
             // picCoeur2
             // 
@@ -151,6 +166,7 @@
             labyrinthePanel.ResumeLayout(false);
             labyrinthePanel.PerformLayout();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picObjet).EndInit();
             ((System.ComponentModel.ISupportInitialize)picCoeur2).EndInit();
             ((System.ComponentModel.ISupportInitialize)picCoeur1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picClef).EndInit();
@@ -166,5 +182,6 @@
         private PictureBox picCoeur1;
         private Panel panel1;
         private Label lblPoint;
+        private PictureBox picObjet;
     }
 }

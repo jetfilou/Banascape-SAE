@@ -29,7 +29,7 @@
             PassageAleatoire();
             AjouterClef();
             AjouterEnemie();
-
+            AjouterCaise();
             labyrinthe[hauteur - 1, largeur - 1] = 3;
         }
 
@@ -129,6 +129,28 @@
                 Random rnd = new Random();
                 var positionAleatoire = positionsValides[rnd.Next(positionsValides.Count)];
                 labyrinthe[positionAleatoire.Item1, positionAleatoire.Item2] = 4;
+            }
+        }
+        public void AjouterCaise()
+        {
+            List<Tuple<int, int>> positionsValides = new List<Tuple<int, int>>();
+
+            for (int i = 0; i < hauteur; i++)
+            {
+                for (int j = 0; j < largeur; j++)
+                {
+                    if (labyrinthe[i, j] == 0 && (Math.Abs(i - 1) + Math.Abs(j - 1)) > 3)
+                    {
+                        positionsValides.Add(new Tuple<int, int>(i, j));
+                    }
+                }
+            }
+
+            if (positionsValides.Count > 0)
+            {
+                Random rnd = new Random();
+                var positionAleatoire = positionsValides[rnd.Next(positionsValides.Count)];
+                labyrinthe[positionAleatoire.Item1, positionAleatoire.Item2] = 5;
             }
         }
 
