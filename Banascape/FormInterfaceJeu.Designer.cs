@@ -53,7 +53,7 @@
             labyrinthePanel.Location = new Point(0, 0);
             labyrinthePanel.Margin = new Padding(3, 2, 3, 2);
             labyrinthePanel.Name = "labyrinthePanel";
-            labyrinthePanel.Size = new Size(1924, 1115);
+            labyrinthePanel.Size = new Size(1924, 1061);
             labyrinthePanel.TabIndex = 0;
             labyrinthePanel.Paint += OnPaint;
             // 
@@ -80,7 +80,7 @@
             lblNiveau.Dock = DockStyle.Bottom;
             lblNiveau.Font = new Font("Stencil", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNiveau.ForeColor = Color.White;
-            lblNiveau.Location = new Point(0, 1021);
+            lblNiveau.Location = new Point(0, 967);
             lblNiveau.Name = "lblNiveau";
             lblNiveau.Size = new Size(149, 32);
             lblNiveau.TabIndex = 1;
@@ -94,7 +94,7 @@
             panel1.Controls.Add(picCoeur1);
             panel1.Controls.Add(picClef);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 1053);
+            panel1.Location = new Point(0, 999);
             panel1.Name = "panel1";
             panel1.Size = new Size(1924, 62);
             panel1.TabIndex = 5;
@@ -141,7 +141,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1924, 1115);
+            ClientSize = new Size(1924, 1061);
             ControlBox = false;
             Controls.Add(labyrinthePanel);
             Margin = new Padding(1);

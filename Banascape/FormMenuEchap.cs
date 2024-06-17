@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Banascape
+﻿namespace Banascape
 {
     public partial class FormMenuEchap : Form
     {
@@ -54,7 +44,7 @@ namespace Banascape
                 this.Close();
                 Application.OpenForms["frmMenuPrincipal"]?.Show();
                 Application.OpenForms["frmInterfaceJeu"]?.Close();
-                
+
             }
         }
     }

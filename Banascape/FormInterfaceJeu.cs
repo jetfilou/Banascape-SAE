@@ -7,6 +7,8 @@ namespace Banascape
     public partial class frmInterfaceJeu : Form
     {
         private FormMenuEchap formMenuEchap;
+        private System.Windows.Forms.Timer timer;
+
 
         private int positionVerticaleJoueur = 1;
         private int positionHorizontaleJoueur = 1;
@@ -15,15 +17,20 @@ namespace Banascape
         private Image joueur;
         private Image clef;
         private Image porte;
-
-
-        Partie partie = new Partie("pedro", 20, 20);
+        private Image ennemie;
+        private Partie partie;
 
         private const int tailleImage = 60;
 
-        public frmInterfaceJeu(string pseudo,bool diff)
+        private bool touchePresser = false;
+
+        private Random random = new Random();
+
+        public frmInterfaceJeu(string pseudo, bool diff)
         {
             InitializeComponent();
+            int dimension = diff == true ? 15 : 40;
+            partie = new Partie(pseudo, dimension, dimension);
             formMenuEchap = new FormMenuEchap();
             this.KeyDown += new KeyEventHandler(FormInterfaceJeu_KeyDown);
             this.KeyPreview = true;
@@ -34,6 +41,12 @@ namespace Banascape
             porte = Properties.Resources.porte_refaite;
             this.ClientSize = new Size(tailleImage * partie.Longueur, tailleImage * partie.Largeur);
             picClef.Image = Properties.Resources.clef_vide;
+            ennemie = Properties.Resources.ennemi;
+
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 2000;
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
 
         private void FormInterfaceJeu_KeyDown(object sender, KeyEventArgs e)
@@ -57,13 +70,11 @@ namespace Banascape
                     DeplacerJoueur(e);
                 }
             }
-            
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
 
             int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
             int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
@@ -76,7 +87,7 @@ namespace Banascape
                 {
                     Rectangle celluleRectangle = new Rectangle(offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
 
-                    //On vérie si la cellule est dans la zone à redessiner
+                    // On vérifie si la cellule est dans la zone à redessiner
                     if (zoneDessin.IntersectsWith(celluleRectangle))
                     {
                         if (partie.Labyrinthe[r, c] == 1)
@@ -85,6 +96,8 @@ namespace Banascape
                             g.DrawImage(clef, celluleRectangle);
                         if (partie.Labyrinthe[r, c] == 3)
                             g.DrawImage(porte, celluleRectangle);
+                        if (partie.Labyrinthe[r, c] == 4)
+                            g.DrawImage(ennemie, celluleRectangle);
                     }
                 }
             }
@@ -102,59 +115,105 @@ namespace Banascape
             switch (e.KeyCode)
             {
                 case Keys.Z:
-                case Keys.Up:
-                    nouvellePositionVerticale--;
+                    if (!touchePresser)
+                    {
+                        nouvellePositionVerticale--;
+                        touchePresser = true;
+                    }
                     break;
                 case Keys.S:
-                case Keys.Down:
-                    nouvellePositionVerticale++;
+                    if (!touchePresser)
+                    {
+                        nouvellePositionVerticale++;
+                        touchePresser = true;
+                    }
                     break;
                 case Keys.Q:
-                case Keys.Left:
-                    nouvellePositionHorizontale--;
+                    if (!touchePresser)
+                    {
+                        nouvellePositionHorizontale--;
+                        touchePresser = true;
+                    }
                     break;
                 case Keys.D:
+                    if (!touchePresser)
+                    {
+                        nouvellePositionHorizontale++;
+                        touchePresser = true;
+                    }
+                    break;
                 case Keys.Right:
-                    nouvellePositionHorizontale++;
+                    if (!touchePresser)
+                    {
+                        nouvellePositionHorizontale++;
+                        touchePresser = true;
+                    }
+                    break;
+                case Keys.Left:
+                    if (!touchePresser)
+                    {
+                        nouvellePositionHorizontale--;
+                        touchePresser = true;
+                    }
+                    break;
+                case Keys.Up:
+                    if (!touchePresser)
+                    {
+                        nouvellePositionVerticale--;
+                        touchePresser = true;
+                    }
+                    break;
+                case Keys.Down:
+                    if (!touchePresser)
+                    {
+                        nouvellePositionVerticale++;
+                        touchePresser = true;
+                    }
                     break;
             }
 
-            if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur && nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur && (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0 || partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 2) || partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 3)
+            if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur && nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur &&
+                (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0 || partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 2 ||
+                partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 3 || partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 4))
             {
                 if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 2)
                 {
                     partie.ChangementClef();
                     partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] = 0;
                     picClef.Image = Properties.Resources.clef;
-
                 }
-                if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 2 || partie.Clef == true)
+                if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 4)
+                {
+                    partie.RetirerVie();
+                    if (partie.Vie == 1)
+                    {
+                        picCoeur1.Image = Properties.Resources.coeur_vide;
+                    }
+                    picCoeur2.Image = Properties.Resources.coeur_vide;
+                }
+                if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 3 && partie.Clef == true)
                 {
                     partie.ChangementPorte();
                     porte = Properties.Resources.porte_ouverte;
-
                 }
+
                 // Déplacement autorisé
-                // Mémoriser l'ancienne position du joueur
                 int anciennePositionVerticale = positionVerticaleJoueur;
                 int anciennePositionHorizontale = positionHorizontaleJoueur;
 
-                // Mettre à jour la position actuelle du joueur
                 positionVerticaleJoueur = nouvellePositionVerticale;
                 positionHorizontaleJoueur = nouvellePositionHorizontale;
 
-                // Calculer les coordonnées des rectangles à redessiner
                 int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
                 int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
                 Rectangle ancienneCellule = new Rectangle(offsetX + anciennePositionHorizontale * tailleImage, offsetY + anciennePositionVerticale * tailleImage, tailleImage, tailleImage);
                 Rectangle nouvelleCellule = new Rectangle(offsetX + nouvellePositionHorizontale * tailleImage, offsetY + nouvellePositionVerticale * tailleImage, tailleImage, tailleImage);
 
-                // Redessiner l'ancienne et la nouvelle cellule
                 labyrinthePanel.Invalidate(ancienneCellule);
                 labyrinthePanel.Invalidate(nouvelleCellule);
             }
-
         }
+
         private void ChargerNouveauLabyrinthe()
         {
             partie.ChargerNouveauLabyrinthe();
@@ -166,7 +225,6 @@ namespace Banascape
             picClef.Image = Properties.Resources.clef_vide;
             partie.AugmenterPoint();
             lblPoint.Text = $"Points : {partie.Point}";
-
         }
 
         private Image redimentionerImage(Image imageARedimentionner, int largeur, int longeur)
@@ -177,6 +235,65 @@ namespace Banascape
                 g.DrawImage(imageARedimentionner, 0, 0, largeur, longeur);
             }
             return (Image)b;
+        }
+
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            base.OnKeyUp(e);
+            touchePresser = false;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            DeplacerEnnemis();
+        }
+
+        private void DeplacerEnnemis()
+        {
+            for (int r = 0; r < partie.Largeur; r++)
+            {
+                for (int c = 0; c < partie.Longueur; c++)
+                {
+                    if (partie.Labyrinthe[r, c] == 4)
+                    {
+                        int direction = random.Next(4);
+                        int nouvellePositionVerticale = r;
+                        int nouvellePositionHorizontale = c;
+
+                        switch (direction)
+                        {
+                            case 0: // Haut
+                                nouvellePositionVerticale--;
+                                break;
+                            case 1: // Bas
+                                nouvellePositionVerticale++;
+                                break;
+                            case 2: // Gauche
+                                nouvellePositionHorizontale--;
+                                break;
+                            case 3: // Droite
+                                nouvellePositionHorizontale++;
+                                break;
+                        }
+
+                        if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur &&
+                            nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur &&
+                            partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
+                        {
+                            partie.Labyrinthe[r, c] = 0;
+                            partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] = 4;
+
+                            int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
+                            int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
+                            Rectangle ancienneCellule = new Rectangle(offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
+                            Rectangle nouvelleCellule = new Rectangle(offsetX + nouvellePositionHorizontale * tailleImage, offsetY + nouvellePositionVerticale * tailleImage, tailleImage, tailleImage);
+
+                            labyrinthePanel.Invalidate(ancienneCellule);
+                            labyrinthePanel.Invalidate(nouvelleCellule);
+                        }
+                    }
+                }
+            }
         }
     }
 }

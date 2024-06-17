@@ -1,5 +1,3 @@
-using System.Windows.Forms;
-
 namespace Banascape
 {
     public partial class frmMenuPrincipal : Form

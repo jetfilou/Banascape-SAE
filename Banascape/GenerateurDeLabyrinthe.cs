@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Banascape
+﻿namespace Banascape
 {
     internal class GenerateurDeLabyrinthe
     {
@@ -32,8 +26,11 @@ namespace Banascape
             }
 
             RechercheEnProfondeur(0, 0);
-            AjouterDeux();
-            labyrinthe[hauteur - 1, largeur - 2] = 3;
+            PassageAleatoire();
+            AjouterClef();
+            AjouterEnemie();
+
+            labyrinthe[hauteur - 1, largeur - 1] = 3;
         }
 
         // Recherche en profondeur
@@ -89,7 +86,7 @@ namespace Banascape
             return labyrinthe;
         }
 
-        public void AjouterDeux()
+        public void AjouterClef()
         {
             List<Tuple<int, int>> positionsValides = new List<Tuple<int, int>>();
 
@@ -109,6 +106,44 @@ namespace Banascape
                 Random rnd = new Random();
                 var positionAleatoire = positionsValides[rnd.Next(positionsValides.Count)];
                 labyrinthe[positionAleatoire.Item1, positionAleatoire.Item2] = 2;
+            }
+        }
+
+        public void AjouterEnemie()
+        {
+            List<Tuple<int, int>> positionsValides = new List<Tuple<int, int>>();
+
+            for (int i = 0; i < hauteur; i++)
+            {
+                for (int j = 0; j < largeur; j++)
+                {
+                    if (labyrinthe[i, j] == 0 && (Math.Abs(i - 1) + Math.Abs(j - 1)) > 3)
+                    {
+                        positionsValides.Add(new Tuple<int, int>(i, j));
+                    }
+                }
+            }
+
+            if (positionsValides.Count > 0)
+            {
+                Random rnd = new Random();
+                var positionAleatoire = positionsValides[rnd.Next(positionsValides.Count)];
+                labyrinthe[positionAleatoire.Item1, positionAleatoire.Item2] = 4;
+            }
+        }
+
+        public void PassageAleatoire()
+        {
+            for(int i = 0;i < 8; i++) {
+                int hauteurAleatoire = 0, largeurAleatoire = 0, minVal = 0, maxVal = hauteur;
+                do
+                {
+                    Random random = new Random();
+                    hauteurAleatoire = random.Next(minVal, maxVal);
+                    largeurAleatoire = random.Next(minVal, maxVal);
+                } while (labyrinthe[hauteurAleatoire, largeurAleatoire] != 1);
+
+                labyrinthe[hauteurAleatoire, largeurAleatoire] = 0;
             }
         }
 
