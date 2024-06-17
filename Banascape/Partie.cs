@@ -17,6 +17,7 @@ namespace Banascape
         private int _niveau;
         private bool _objetInventaire;
         private int _typeObjet;
+        private bool _invincible;
 
         public Partie(string pseudo, int longueurLabyrinthe, int largeurLabyrinthe)
         {
@@ -30,7 +31,7 @@ namespace Banascape
             _niveau = 1;
             _objetInventaire = false;
             _typeObjet = 0;
-
+            _invincible = false;
         GenerateurDeLabyrinthe generateur = new GenerateurDeLabyrinthe(longueurLabyrinthe - 2, largeurLabyrinthe - 2);
             generateur.GenerationDuLabyrinthe();
             _labyrinthe = generateur.GetLabyrintheAvecBordures();
@@ -45,7 +46,8 @@ namespace Banascape
         public int Point => _point;
         public int Vie => _nbVie;
         public int TypeObjet => _typeObjet;
-        public bool Objet => _objetInventaire;  
+        public bool Objet => _objetInventaire;
+        public bool Invincible => _invincible;
 
         public void ChangementClef()
         {
@@ -82,6 +84,10 @@ namespace Banascape
             _typeObjet = 0;
 
         }
+        public void ChangementInvincible() 
+        { 
+            _invincible = !_invincible;
+        }
         public void ChargerNouveauLabyrinthe()
         {
             GenerateurDeLabyrinthe generateur = new GenerateurDeLabyrinthe(_longueurLabyrinthe - 2, _largeurLabyrinthe - 2);
@@ -91,5 +97,6 @@ namespace Banascape
             _porte = false;
             _niveau++;
         }
+
     }
 }

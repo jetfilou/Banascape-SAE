@@ -8,11 +8,12 @@ namespace Banascape
     {
         private FormMenuEchap formMenuEchap;
         private System.Windows.Forms.Timer tempsAvantProchainDeplacement;
+        private System.Windows.Forms.Timer durerStunt;
 
 
         private int positionVerticaleJoueur = 1;
         private int positionHorizontaleJoueur = 1;
-
+        private int IntervalTimer = 500;
         private Image mur;
         private Image joueur;
         private Image clef;
@@ -49,9 +50,13 @@ namespace Banascape
             ennemie = Properties.Resources.ennemi;
 
             tempsAvantProchainDeplacement = new System.Windows.Forms.Timer();
-            tempsAvantProchainDeplacement.Interval = 2000;
-            tempsAvantProchainDeplacement.Tick += Timer_Tick;
+            tempsAvantProchainDeplacement.Interval = IntervalTimer;
+            tempsAvantProchainDeplacement.Tick += lancementDeplacementEnnemie;
             tempsAvantProchainDeplacement.Start();
+
+            durerStunt = new System.Windows.Forms.Timer();
+            durerStunt.Interval = 5000;
+            durerStunt.Tick += imobilisationEnnmie;
             RechercheEnemie();
         }
 
@@ -60,13 +65,21 @@ namespace Banascape
             for (int r = 0; r < partie.Largeur; r++)
             {
                 for (int c = 0; c < partie.Longueur; c++)
-                {
+                
                     if (partie.Labyrinthe[r, c] == 4)
                     {
                         ennemieN1 = new Ennemie(r, c);
                     }
-                }
             }
+        }
+
+        private void imobilisationEnnmie(object sender, EventArgs e)
+        {
+            tempsAvantProchainDeplacement.Start();
+            durerStunt.Stop();
+            partie.ChangementInvincible();
+
+
         }
 
         private void FormInterfaceJeu_KeyDown(object sender, KeyEventArgs e)
@@ -120,13 +133,20 @@ namespace Banascape
                             break;
                         }
                        
-                        break;
+                    break;
                     case 2:
-                        picObjet.Image = Properties.Resources.taser;
+                        picObjet.Image = null;
+                        if ( partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur] == 4 || partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur - 1] == 4 ||  partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur - 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur - 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur - 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur - 1] == 4)
+                        {
+                            tempsAvantProchainDeplacement.Stop();
+                            durerStunt.Start();
+                            partie.ChangementInvincible();
+                        }
                         break;
                 }
             }
-                if (e.KeyCode == Keys.Enter && partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur] == 3 && partie.Porte == true)
+
+            if (e.KeyCode == Keys.Enter && partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur] == 3 && partie.Porte == true)
             {
                 ChargerNouveauLabyrinthe();
             }
@@ -254,12 +274,7 @@ namespace Banascape
                 }
                 if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 4)
                 {
-                    partie.RetirerVie();
-                    if (partie.Vie == 1)
-                    {
-                        picCoeur1.Image = Properties.Resources.coeur_vide;
-                    }
-                    picCoeur2.Image = Properties.Resources.coeur_vide;
+                    degat();
                 }
                 if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 3 && partie.Clef == true)
                 {
@@ -284,7 +299,19 @@ namespace Banascape
                 labyrinthePanel.Invalidate(nouvelleCellule);
             }
         }
-
+        void degat() 
+        {
+            if (partie.Invincible == false)
+            {
+             partie.RetirerVie();
+                        if (partie.Vie == 1)
+                        {
+                            picCoeur1.Image = Properties.Resources.coeur_vide;
+                        }
+                        picCoeur2.Image = Properties.Resources.coeur_vide; 
+            }  
+        }
+        
         private void ChargerNouveauLabyrinthe()
         {
             partie.ChargerNouveauLabyrinthe();
@@ -324,7 +351,7 @@ namespace Banascape
             touchePresser = false;
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void lancementDeplacementEnnemie(object sender, EventArgs e)
         {
             DeplacerEnnemis();
         }
@@ -368,7 +395,7 @@ namespace Banascape
 
                             labyrinthePanel.Invalidate(ancienneCellule);
                             labyrinthePanel.Invalidate(nouvelleCellule);
-                ennemieN1.NouvellePosition(nouvellePositionVerticale, nouvellePositionHorizontale);
+                            ennemieN1.NouvellePosition(nouvellePositionVerticale, nouvellePositionHorizontale);
                         }
                     }
                 

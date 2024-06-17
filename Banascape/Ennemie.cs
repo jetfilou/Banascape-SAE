@@ -13,13 +13,14 @@ namespace Banascape
         private int _positionHorizontale;
         private int _anciennePositionVerticale;
         private int _anciennePositionHorizontale;
-
+        private bool _stunt;
 
         public Ennemie(int positionVertical, int positionHorizontale)
         {
             _positionVerticale = positionVertical;
             _positionHorizontale = positionHorizontale;
             _etat = true;
+            _stunt = false;
         }
         public int AnciennePositionVerticale => _anciennePositionVerticale;
         public int AnciennePositionHorizontale => _anciennePositionHorizontale;
@@ -33,6 +34,10 @@ namespace Banascape
 
             _positionVerticale = nouvellePositionVertical;
             _positionHorizontale = nouvellePositionHorizontale;
+        }
+        public void stuntEnnemie()
+        {
+            _stunt = true;
         }
 
     }
