@@ -9,11 +9,15 @@ namespace Banascape
         private FormMenuEchap formMenuEchap;
         private System.Windows.Forms.Timer tempsAvantProchainDeplacement;
         private System.Windows.Forms.Timer durerStunt;
-
+        private Partie partie;
+        private Ennemie ennemieN1, ennemieN2, ennemieN3;
+        private Random random = new Random();
 
         private int positionVerticaleJoueur = 1;
         private int positionHorizontaleJoueur = 1;
         private int IntervalTimer = 500;
+        private const int tailleImage = 60;
+
         private Image mur;
         private Image joueur;
         private Image clef;
@@ -21,65 +25,47 @@ namespace Banascape
         private Image ennemie;
         private Image caise;
 
-        private Partie partie;
-        private Ennemie ennemieN1;
-
-        private const int tailleImage = 60;
-
-        private bool touchePresser = false;
-
-        private Random random = new Random();
-
         public frmInterfaceJeu(string pseudo, bool diff)
         {
             InitializeComponent();
-            int dimension = diff == true ? 15 : 40;
+
+            int dimension = diff ? 15 : 40;
             partie = new Partie(pseudo, dimension, dimension);
+            this.ClientSize = new Size(tailleImage * partie.Longueur, tailleImage * partie.Largeur);
+
             formMenuEchap = new FormMenuEchap();
-            this.KeyDown += new KeyEventHandler(FormInterfaceJeu_KeyDown);
+            this.KeyDown += FormInterfaceJeu_KeyDown;
             this.KeyPreview = true;
 
             mur = Properties.Resources.mur;
-            joueur = redimentionerImage(Properties.Resources.Banane, 60, 44);
             clef = Properties.Resources.clef;
             porte = Properties.Resources.porte_refaite;
             caise = Properties.Resources.caisse;
-
-            this.ClientSize = new Size(tailleImage * partie.Longueur, tailleImage * partie.Largeur);
-            picClef.Image = Properties.Resources.clef_vide;
             ennemie = Properties.Resources.ennemi;
+            joueur = Properties.Resources.Banane;
+            picClef.Image = Properties.Resources.clef_vide;
 
-            tempsAvantProchainDeplacement = new System.Windows.Forms.Timer();
-            tempsAvantProchainDeplacement.Interval = IntervalTimer;
-            tempsAvantProchainDeplacement.Tick += lancementDeplacementEnnemie;
+            tempsAvantProchainDeplacement = new System.Windows.Forms.Timer
+            {
+                Interval = IntervalTimer
+            };
+            tempsAvantProchainDeplacement.Tick += LancementDeplacementEnnemie;
             tempsAvantProchainDeplacement.Start();
 
-            durerStunt = new System.Windows.Forms.Timer();
-            durerStunt.Interval = 5000;
-            durerStunt.Tick += imobilisationEnnmie;
+            durerStunt = new System.Windows.Forms.Timer
+            {
+                Interval = 5000
+            };
+            durerStunt.Tick += ImmobilisationEnnemie;
+
             RechercheEnemie();
         }
 
-        void RechercheEnemie()
-        {
-            for (int r = 0; r < partie.Largeur; r++)
-            {
-                for (int c = 0; c < partie.Longueur; c++)
-                
-                    if (partie.Labyrinthe[r, c] == 4)
-                    {
-                        ennemieN1 = new Ennemie(r, c);
-                    }
-            }
-        }
-
-        private void imobilisationEnnmie(object sender, EventArgs e)
+        private void ImmobilisationEnnemie(object sender, EventArgs e)
         {
             tempsAvantProchainDeplacement.Start();
             durerStunt.Stop();
             partie.ChangementInvincible();
-
-
         }
 
         private void FormInterfaceJeu_KeyDown(object sender, KeyEventArgs e)
@@ -100,14 +86,11 @@ namespace Banascape
                 {
                     case 1:
                         picObjet.Image = Properties.Resources.soin;
-                        lblNiveau.Text = $"{partie.TypeObjet}";
                         break;
                     case 2:
                         picObjet.Image = Properties.Resources.taser;
                         break;
                 }
-
-
             }
 
             if (e.KeyCode == Keys.E && partie.Objet)
@@ -115,47 +98,22 @@ namespace Banascape
                 switch (partie.TypeObjet)
                 {
                     case 1:
-
-                        if (partie.Vie < 2)
-                        {
-                            partie.AjoutrerVie();
-                            picCoeur1.Image = Properties.Resources.coeur_plein;
-                            partie.ChangementObjetUtilisé();
-                            picObjet.Image = null;
-                            break;
-                        }
-                        if (partie.Vie < 3)
-                        {
-                            partie.AjoutrerVie();
-                            picCoeur2.Image = Properties.Resources.coeur_plein;
-                            partie.ChangementObjetUtilisé();
-                            picObjet.Image = null;
-                            break;
-                        }
-                       
-                    break;
+                        UtiliserSoin();
+                        break;
                     case 2:
-                        picObjet.Image = null;
-                        if ( partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur] == 4 || partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur - 1] == 4 ||  partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur - 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur + 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur - 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur - 1, positionHorizontaleJoueur - 1] == 4 || partie.Labyrinthe[positionVerticaleJoueur + 1, positionHorizontaleJoueur - 1] == 4)
-                        {
-                            tempsAvantProchainDeplacement.Stop();
-                            durerStunt.Start();
-                            partie.ChangementInvincible();
-                        }
+                        UtiliserTaser();
                         break;
                 }
             }
 
-            if (e.KeyCode == Keys.Enter && partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur] == 3 && partie.Porte == true)
+            if (e.KeyCode == Keys.Enter && partie.Labyrinthe[positionVerticaleJoueur, positionHorizontaleJoueur] == 3 && partie.Porte)
             {
                 ChargerNouveauLabyrinthe();
             }
-            else
+            else if (e.KeyCode == Keys.Z || e.KeyCode == Keys.Q || e.KeyCode == Keys.S || e.KeyCode == Keys.D ||
+                     e.KeyCode == Keys.Right || e.KeyCode == Keys.Left || e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
             {
-                if (e.KeyCode == Keys.Z || e.KeyCode == Keys.Q || e.KeyCode == Keys.S || e.KeyCode == Keys.D || e.KeyCode == Keys.Right || e.KeyCode == Keys.Left || e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
-                {
-                    DeplacerJoueur(e);
-                }
+                DeplacerJoueur(e);
             }
         }
 
@@ -174,24 +132,30 @@ namespace Banascape
                 {
                     Rectangle celluleRectangle = new Rectangle(offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
 
-                    // On vérifie si la cellule est dans la zone à redessiner
                     if (zoneDessin.IntersectsWith(celluleRectangle))
                     {
-                        if (partie.Labyrinthe[r, c] == 1)
-                            g.DrawImage(mur, celluleRectangle);
-                        if (partie.Labyrinthe[r, c] == 2)
-                            g.DrawImage(clef, celluleRectangle);
-                        if (partie.Labyrinthe[r, c] == 3)
-                            g.DrawImage(porte, celluleRectangle);
-                        if (partie.Labyrinthe[r, c] == 4)
-                            g.DrawImage(ennemie, celluleRectangle);
-                        if (partie.Labyrinthe[r, c] == 5)
-                            g.DrawImage(caise, celluleRectangle);
+                        switch (partie.Labyrinthe[r, c])
+                        {
+                            case 1:
+                                g.DrawImage(mur, celluleRectangle);
+                                break;
+                            case 2:
+                                g.DrawImage(clef, celluleRectangle);
+                                break;
+                            case 3:
+                                g.DrawImage(porte, celluleRectangle);
+                                break;
+                            case 4:
+                                g.DrawImage(ennemie, celluleRectangle);
+                                break;
+                            case 5:
+                                g.DrawImage(caise, celluleRectangle);
+                                break;
+                        }
                     }
                 }
             }
 
-            // Dessiner le joueur dans la nouvelle cellule
             Rectangle joueurCellule = new Rectangle(offsetX + positionHorizontaleJoueur * tailleImage, offsetY + positionVerticaleJoueur * tailleImage, tailleImage, tailleImage);
             g.DrawImage(joueur, joueurCellule);
         }
@@ -204,86 +168,27 @@ namespace Banascape
             switch (e.KeyCode)
             {
                 case Keys.Z:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionVerticale--;
-                        touchePresser = true;
-                    }
+                case Keys.Up:
+                    nouvellePositionVerticale--;
                     break;
                 case Keys.S:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionVerticale++;
-                        touchePresser = true;
-                    }
+                case Keys.Down:
+                    nouvellePositionVerticale++;
                     break;
                 case Keys.Q:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionHorizontale--;
-                        touchePresser = true;
-                    }
+                case Keys.Left:
+                    nouvellePositionHorizontale--;
                     break;
                 case Keys.D:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionHorizontale++;
-                        touchePresser = true;
-                    }
-                    break;
                 case Keys.Right:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionHorizontale++;
-                        touchePresser = true;
-                    }
-                    break;
-                case Keys.Left:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionHorizontale--;
-                        touchePresser = true;
-                    }
-                    break;
-                case Keys.Up:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionVerticale--;
-                        touchePresser = true;
-                    }
-                    break;
-                case Keys.Down:
-                    if (!touchePresser)
-                    {
-                        nouvellePositionVerticale++;
-                        touchePresser = true;
-                    }
+                    nouvellePositionHorizontale++;
                     break;
             }
 
-            if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur && nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur &&
-                (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0 || partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 2 ||
-                partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 3 || partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 4 ||
-                partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 5))
+            if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur &&
+                nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur &&
+                partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
             {
-                if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 2)
-                {
-                    partie.ChangementClef();
-                    partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] = 0;
-                    picClef.Image = Properties.Resources.clef;
-                }
-                if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 4)
-                {
-                    degat();
-                }
-                if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 3 && partie.Clef == true)
-                {
-                    partie.ChangementPorte();
-                    porte = Properties.Resources.porte_ouverte;
-                }
-
-
-                // Déplacement autorisé
                 int anciennePositionVerticale = positionVerticaleJoueur;
                 int anciennePositionHorizontale = positionHorizontaleJoueur;
 
@@ -299,113 +204,125 @@ namespace Banascape
                 labyrinthePanel.Invalidate(nouvelleCellule);
             }
         }
-        void degat() 
+
+        private void RechercheEnemie()
         {
-            if (partie.Invincible == false)
+            for (int i = 0; i < partie.Largeur; i++)
             {
-             partie.RetirerVie();
-                        if (partie.Vie == 1)
-                        {
-                            picCoeur1.Image = Properties.Resources.coeur_vide;
-                        }
-                        picCoeur2.Image = Properties.Resources.coeur_vide; 
-            }  
-        }
-        
-        private void ChargerNouveauLabyrinthe()
-        {
-            partie.ChargerNouveauLabyrinthe();
-            positionVerticaleJoueur = 1;
-            positionHorizontaleJoueur = 1;
-            labyrinthePanel.Invalidate();
-            lblNiveau.Text = $"Niveau : {partie.Niveau}";
-            porte = Properties.Resources.porte_refaite;
-            picClef.Image = Properties.Resources.clef_vide;
-            partie.AugmenterPoint();
-            lblPoint.Text = $"Points : {partie.Point}";
-            for (int r = 0; r < partie.Largeur; r++)
-            {
-                for (int c = 0; c < partie.Longueur; c++)
+                for (int j = 0; j < partie.Longueur; j++)
                 {
-                    if (partie.Labyrinthe[r, c] == 4)
+                    if (partie.Labyrinthe[i, j] == 4)
                     {
-                        ennemieN1.NouvellePosition(r, c);
+                        if (ennemieN1 == null)
+                        {
+                            ennemieN1 = new Ennemie(i, j);
+                        }
+                        else if (ennemieN2 == null)
+                        {
+                            ennemieN2 = new Ennemie(i, j);
+                        }
+                        else if (ennemieN3 == null)
+                        {
+                            ennemieN3 = new Ennemie(i, j);
+                        }
                     }
                 }
             }
         }
 
-        private Image redimentionerImage(Image imageARedimentionner, int largeur, int longeur)
+        private void LancementDeplacementEnnemie(object sender, EventArgs e)
         {
-            Bitmap b = new Bitmap(largeur, longeur);
-            using (Graphics g = Graphics.FromImage(b))
+            if (ennemieN1 != null)
             {
-                g.DrawImage(imageARedimentionner, 0, 0, largeur, longeur);
+                DeplacerEnnemie(ennemieN1);
             }
-            return (Image)b;
+            if (ennemieN2 != null)
+            {
+                DeplacerEnnemie(ennemieN2);
+            }
+            if (ennemieN3 != null)
+            {
+                DeplacerEnnemie(ennemieN3);
+            }
         }
 
-        protected override void OnKeyUp(KeyEventArgs e)
+        private void DeplacerEnnemie(Ennemie ennemie)
         {
-            base.OnKeyUp(e);
-            touchePresser = false;
-        }
-
-        private void lancementDeplacementEnnemie(object sender, EventArgs e)
-        {
-            DeplacerEnnemis();
-        }
-
-        private void DeplacerEnnemis()
-        {
-            int c = ennemieN1.NouvellePositionHorizontale;
-            int r = ennemieN1.NouvellePositionVerticale;
+            int nouvellePositionVerticale = ennemie.PositionVerticale;
+            int nouvellePositionHorizontale = ennemie.PositionHorizontale;
 
             int direction = random.Next(4);
-            int nouvellePositionVerticale = r;
-            int nouvellePositionHorizontale = c;
 
             switch (direction)
             {
-                case 0: // Haut
+                case 0:
                     nouvellePositionVerticale--;
-                break;
-                case 1: // Bas
+                    break;
+                case 1:
                     nouvellePositionVerticale++;
-                break;
-                case 2: // Gauche
+                    break;
+                case 2:
                     nouvellePositionHorizontale--;
-                break;
-                            case 3: // Droite
-                                nouvellePositionHorizontale++;
-                                break;
-                        }
+                    break;
+                case 3:
+                    nouvellePositionHorizontale++;
+                    break;
+            }
 
-                        if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur &&
-                            nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur &&
-                            partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
-                        {
-                            partie.Labyrinthe[r, c] = 0;
-                            partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] = 4;
+            if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur &&
+                nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur &&
+                partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
+            {
+                partie.Labyrinthe[ennemie.PositionVerticale, ennemie.PositionHorizontale] = 0;
+                partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] = 4;
 
-                            int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
-                            int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
-                            Rectangle ancienneCellule = new Rectangle(offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
-                            Rectangle nouvelleCellule = new Rectangle(offsetX + nouvellePositionHorizontale * tailleImage, offsetY + nouvellePositionVerticale * tailleImage, tailleImage, tailleImage);
+                ennemie.PositionVerticale = nouvellePositionVerticale;
+                ennemie.PositionHorizontale = nouvellePositionHorizontale;
 
-                            labyrinthePanel.Invalidate(ancienneCellule);
-                            labyrinthePanel.Invalidate(nouvelleCellule);
-                            ennemieN1.NouvellePosition(nouvellePositionVerticale, nouvellePositionHorizontale);
-                        }
-                    }
-                
-            
-        
-        int ObjetAleatoire()
+                int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
+                int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
+                Rectangle ancienneCellule = new Rectangle(offsetX + ennemie.PositionHorizontale * tailleImage, offsetY + ennemie.PositionVerticale * tailleImage, tailleImage, tailleImage);
+                Rectangle nouvelleCellule = new Rectangle(offsetX + nouvellePositionHorizontale * tailleImage, offsetY + nouvellePositionVerticale * tailleImage, tailleImage, tailleImage);
+
+                labyrinthePanel.Invalidate(ancienneCellule);
+                labyrinthePanel.Invalidate(nouvelleCellule);
+            }
+        }
+
+        private void UtiliserSoin()
         {
-            Random rnd = new Random();
-            int objet = random.Next(1, 3);
-            return objet;
+            partie.ChangementVie(50);
+            partie.ChangementObjet();
+            picObjet.Image = null;
+        }
+
+        private void UtiliserTaser()
+        {
+            partie.ChangementObjet();
+            partie.ChangementInvincible();
+            tempsAvantProchainDeplacement.Stop();
+            durerStunt.Start();
+            picObjet.Image = null;
+        }
+
+        private void ChargerNouveauLabyrinthe()
+        {
+            partie.ChargementLabyrinthe();
+            positionHorizontaleJoueur = 1;
+            positionVerticaleJoueur = 1;
+            ennemieN1 = null;
+            ennemieN2 = null;
+            ennemieN3 = null;
+            RechercheEnemie();
+            picClef.Image = Properties.Resources.clef_vide;
+            partie.ChangementPorte();
+            partie.ChangementClef();
+            labyrinthePanel.Invalidate();
+        }
+
+        private int ObjetAleatoire()
+        {
+            return random.Next(1, 3);
         }
     }
 }
