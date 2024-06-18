@@ -118,73 +118,76 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="sol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="trophee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trophee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bouton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bouton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bouton_carre_play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bouton_carre_play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Menu_vierge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Menu_vierge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bouton_retour" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bouton_retour.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="vie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Banane" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Banane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Banane1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Banane.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bouton_carre_quitter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bouton_carre_quitter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bouton_retour1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bouton_retour1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clef" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clef.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="porte_ouverte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\porte_ouverte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="porte_refaite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\porte_refaite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clef vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clef (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coeur-plein" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-clipart-heart-pixel-art-pixel-flag-text-thumbnail-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coeur-vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-clipart-heart-pixel-art-pixel-flag-text-thumbnail-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="caisse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\istockphoto-501815429-612x612-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Banane sion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Banane-fotor-20240617202953.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="soin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1000_F_541203899_jWKFGh3vBzXfXmWayKMbZ9oe4XP0nWli-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="taser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2991298-fotor-20240617185743.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ennemi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ennemi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clef" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clef.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coeur-plein" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-clipart-heart-pixel-art-pixel-flag-text-thumbnail-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bouton_retour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bouton_retour.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banane sion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banane-fotor-20240617202953.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coeur-vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-clipart-heart-pixel-art-pixel-flag-text-thumbnail-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Menu_vierge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu_vierge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bouton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bouton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="soin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1000_F_541203899_jWKFGh3vBzXfXmWayKMbZ9oe4XP0nWli-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bouton_carre_play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bouton_carre_play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clef vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clef (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="caisse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\istockphoto-501815429-612x612-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bouton_retour1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bouton_retour1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porte_refaite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porte_refaite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bouton_carre_quitter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bouton_carre_quitter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trophee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trophee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porte_ouverte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porte_ouverte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banane1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banane.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fond.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

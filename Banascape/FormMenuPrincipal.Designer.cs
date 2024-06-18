@@ -29,26 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
-            picBanane = new PictureBox();
             btnReprendre = new Button();
             lblBanascape = new Label();
             btnNouvellePartie = new Button();
             btnQuitter = new Button();
             btnClassement = new Button();
-            ((System.ComponentModel.ISupportInitialize)picBanane).BeginInit();
             SuspendLayout();
-            // 
-            // picBanane
-            // 
-            picBanane.Anchor = AnchorStyles.Top;
-            picBanane.Image = Properties.Resources.Banane;
-            picBanane.Location = new Point(415, 20);
-            picBanane.Margin = new Padding(3, 4, 3, 4);
-            picBanane.Name = "picBanane";
-            picBanane.Size = new Size(103, 120);
-            picBanane.SizeMode = PictureBoxSizeMode.Zoom;
-            picBanane.TabIndex = 0;
-            picBanane.TabStop = false;
             // 
             // btnReprendre
             // 
@@ -61,9 +47,9 @@
             btnReprendre.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnReprendre.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnReprendre.FlatStyle = FlatStyle.Flat;
-            btnReprendre.Font = new Font("Arial Rounded MT Bold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReprendre.Font = new Font("Bahnschrift Condensed", 16.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReprendre.ForeColor = Color.Black;
-            btnReprendre.Location = new Point(385, 230);
+            btnReprendre.Location = new Point(45, 202);
             btnReprendre.Margin = new Padding(3, 4, 3, 4);
             btnReprendre.Name = "btnReprendre";
             btnReprendre.Size = new Size(190, 66);
@@ -76,12 +62,14 @@
             // 
             lblBanascape.Anchor = AnchorStyles.Top;
             lblBanascape.AutoSize = true;
-            lblBanascape.Font = new Font("Arial Rounded MT Bold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBanascape.Location = new Point(385, 154);
+            lblBanascape.BackColor = Color.Transparent;
+            lblBanascape.Font = new Font("Bahnschrift Condensed", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBanascape.ForeColor = Color.White;
+            lblBanascape.Location = new Point(45, 99);
             lblBanascape.Name = "lblBanascape";
-            lblBanascape.Size = new Size(201, 39);
+            lblBanascape.Size = new Size(203, 57);
             lblBanascape.TabIndex = 2;
-            lblBanascape.Text = "Banascape";
+            lblBanascape.Text = "BANASCAPE";
             // 
             // btnNouvellePartie
             // 
@@ -94,9 +82,9 @@
             btnNouvellePartie.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnNouvellePartie.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnNouvellePartie.FlatStyle = FlatStyle.Flat;
-            btnNouvellePartie.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNouvellePartie.Font = new Font("Bahnschrift Condensed", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNouvellePartie.ForeColor = Color.Black;
-            btnNouvellePartie.Location = new Point(385, 316);
+            btnNouvellePartie.Location = new Point(45, 302);
             btnNouvellePartie.Margin = new Padding(3, 4, 3, 4);
             btnNouvellePartie.Name = "btnNouvellePartie";
             btnNouvellePartie.Size = new Size(190, 66);
@@ -116,9 +104,9 @@
             btnQuitter.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnQuitter.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnQuitter.FlatStyle = FlatStyle.Flat;
-            btnQuitter.Font = new Font("Arial Rounded MT Bold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnQuitter.Font = new Font("Bahnschrift Condensed", 16.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnQuitter.ForeColor = Color.Black;
-            btnQuitter.Location = new Point(385, 402);
+            btnQuitter.Location = new Point(45, 402);
             btnQuitter.Margin = new Padding(3, 4, 3, 4);
             btnQuitter.Name = "btnQuitter";
             btnQuitter.Size = new Size(190, 66);
@@ -138,7 +126,7 @@
             btnClassement.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnClassement.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnClassement.FlatStyle = FlatStyle.Flat;
-            btnClassement.Font = new Font("Arial Rounded MT Bold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClassement.Font = new Font("Bahnschrift Condensed", 16.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClassement.ForeColor = Color.Black;
             btnClassement.Location = new Point(705, 514);
             btnClassement.Margin = new Padding(3, 4, 3, 4);
@@ -154,6 +142,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
+            BackgroundImage = Properties.Resources.fond;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(914, 600);
             ControlBox = false;
             Controls.Add(btnClassement);
@@ -161,21 +151,17 @@
             Controls.Add(btnNouvellePartie);
             Controls.Add(lblBanascape);
             Controls.Add(btnReprendre);
-            Controls.Add(picBanane);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "frmMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Banascape";
-            ((System.ComponentModel.ISupportInitialize)picBanane).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox picBanane;
         private Button btnReprendre;
         private Label lblBanascape;
         private Button btnNouvellePartie;
