@@ -31,6 +31,7 @@
             AjouterEnemie();
             AjouterEnemie();
             AjouterEnemie();
+
             AjouterCaise();
             labyrinthe[hauteur - 1, largeur - 1] = 3;
         }

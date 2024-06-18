@@ -1,68 +1,102 @@
-﻿public class Partie
+﻿using System;
+using System.Data.SqlClient;
+
+namespace Banascape
 {
-    public int Largeur { get; }
-    public int Longueur { get; }
-    public int[,] Labyrinthe { get; private set; }
-    public bool Porte { get; private set; }
-    public bool Clef { get; private set; }
-    public bool Objet { get; private set; }
-    public int TypeObjet { get; private set; }
-    public bool Invincible { get; private set; }
-
-    private Random random = new Random();
-
-    public Partie(string pseudo, int largeur, int longueur)
+    internal class Partie
     {
-        Largeur = largeur;
-        Longueur = longueur;
-        Labyrinthe = new int[largeur, longueur];
-        ChargerLabyrinthe();
-    }
+        // Propriétés
+        private string _pseudo;
+        private int _nbVie;
+        private bool _clef;
+        private int[,] _labyrinthe;
+        private int _point;
+        private int _longueurLabyrinthe;
+        private int _largeurLabyrinthe;
+        private bool _porte;
+        private int _niveau;
+        private bool _objetInventaire;
+        private int _typeObjet;
+        private bool _invincible;
 
-    private void ChargerLabyrinthe()
-    {
-        for (int i = 0; i < Largeur; i++)
+        public Partie(string pseudo, int longueurLabyrinthe, int largeurLabyrinthe)
         {
-            for (int j = 0; j < Longueur; j++)
-            {
-                Labyrinthe[i, j] = random.Next(6); 
-            }
+            _pseudo = pseudo;
+            _nbVie = 3;
+            _clef = false;
+            _point = 0;
+            _largeurLabyrinthe = largeurLabyrinthe;
+            _longueurLabyrinthe = longueurLabyrinthe;
+            _porte = false;
+            _niveau = 1;
+            _objetInventaire = false;
+            _typeObjet = 0;
+            _invincible = false;
+            GenerateurDeLabyrinthe generateur = new GenerateurDeLabyrinthe(longueurLabyrinthe - 2, largeurLabyrinthe - 2);
+            generateur.GenerationDuLabyrinthe();
+            _labyrinthe = generateur.GetLabyrintheAvecBordures();
         }
-    }
 
-    public void ChargementLabyrinthe()
-    {
-        ChargerLabyrinthe();
-    }
+        public int[,] Labyrinthe => _labyrinthe;
+        public int Largeur => _largeurLabyrinthe;
+        public int Longueur => _longueurLabyrinthe;
+        public bool Clef => _clef;
+        public bool Porte => _clef;
+        public int Niveau => _niveau;
+        public int Point => _point;
+        public int Vie => _nbVie;
+        public int TypeObjet => _typeObjet;
+        public bool Objet => _objetInventaire;
+        public bool Invincible => _invincible;
 
-    public void ChangementVie(int vie)
-    {
-        // Implémenter la logique pour changer la vie du joueur
-    }
+        public void ChangementClef()
+        {
+            _clef = !_clef;
+        }
 
-    public void ChangementPorte()
-    {
-        Porte = !Porte;
-    }
+        public void ChangementPorte()
+        {
+            _porte = !_porte;
+        }
 
-    public void ChangementClef()
-    {
-        Clef = !Clef;
-    }
+        public void RetirerVie()
+        {
+            _nbVie--;
+        }
+        public void AjoutrerVie()
+        {
+            _nbVie++;
+        }
 
-    public void ChangementObjet()
-    {
-        Objet = !Objet;
-    }
+        public void AugmenterPoint()
+        {
+            _point += 100;
+        }
+        public void ChangementObjetRamaser(int obj)
+        {
+            _objetInventaire = true;
+            _typeObjet = obj;
 
-    public void ChangementObjetRamaser(int type)
-    {
-        TypeObjet = type;
-        ChangementObjet();
-    }
+        }
+        public void ChangementObjetUtilisé()
+        {
+            _objetInventaire = false;
+            _typeObjet = 0;
 
-    public void ChangementInvincible()
-    {
-        Invincible = !Invincible;
+        }
+        public void ChangementInvincible()
+        {
+            _invincible = !_invincible;
+        }
+        public void ChargerNouveauLabyrinthe()
+        {
+            GenerateurDeLabyrinthe generateur = new GenerateurDeLabyrinthe(_longueurLabyrinthe - 2, _largeurLabyrinthe - 2);
+            generateur.GenerationDuLabyrinthe();
+            _labyrinthe = generateur.GetLabyrintheAvecBordures();
+            _clef = false;
+            _porte = false;
+            _niveau++;
+        }
+
     }
 }
