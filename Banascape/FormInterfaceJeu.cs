@@ -293,7 +293,14 @@ namespace Banascape
                 }
                 if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 4)
                 {
-                    degat();
+                    if (nouvellePositionVerticale == ennemieN1.NouvellePositionVerticale && nouvellePositionHorizontale == ennemieN1.NouvellePositionHorizontale)
+                    {
+                        degatN1();
+                    }
+                    if (nouvellePositionVerticale == ennemieN2.NouvellePositionVerticale && nouvellePositionHorizontale == ennemieN2.NouvellePositionHorizontale)
+                    {
+                        degatN2();
+                    }
                 }
                 if (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 3 && partie.Porte)
                 {
@@ -454,9 +461,9 @@ namespace Banascape
                 ennemie.DirectionActuelle = direction; // Mettre à jour la direction actuelle de l'ennemi
             }
 
-            if(nouvellePositionVerticale == positionVerticaleJoueur && nouvellePositionHorizontale == positionHorizontaleJoueur)
+            if (nouvellePositionVerticale == positionVerticaleJoueur && nouvellePositionHorizontale == positionHorizontaleJoueur)
             {
-                degat();
+                degat(ennemie);
 
             }
         }
@@ -485,9 +492,9 @@ namespace Banascape
                 }
             }
         }
-        void degat()
+        void degat(Ennemie ennemie)
         {
-            if (partie.Invincible == false)
+            if (ennemie.Stun == false)
             {
                 partie.RetirerVie();
                 if (partie.Vie == 1)
@@ -499,8 +506,47 @@ namespace Banascape
                 {
                     this.Close();
                 }
+
+            }
+
+
+
+        }
+        void degatN1()
+        {
+            if (ennemieN1.Stun == false)
+            {
+                partie.RetirerVie();
+                if (partie.Vie == 1)
+                {
+                    picCoeur1.Image = Properties.Resources.coeur_vide;
+                }
+                picCoeur2.Image = Properties.Resources.coeur_vide;
+                if (partie.Vie == 0)
+                {
+                    this.Close();
+                }
+
             }
         }
+        void degatN2()
+        {
+            if (ennemieN2.Stun == false)
+            {
+                partie.RetirerVie();
+                if (partie.Vie == 1)
+                {
+                    picCoeur1.Image = Properties.Resources.coeur_vide;
+                }
+                picCoeur2.Image = Properties.Resources.coeur_vide;
+                if (partie.Vie == 0)
+                {
+                    this.Close();
+                }
 
+            }
+        }
     }
 }
+
+
