@@ -143,6 +143,16 @@ namespace Banascape.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bouton_carre_play1 {
+            get {
+                object obj = ResourceManager.GetObject("bouton_carre_play1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bouton_carre_quitter {
             get {
                 object obj = ResourceManager.GetObject("bouton_carre_quitter", resourceCulture);
@@ -246,6 +256,26 @@ namespace Banascape.Properties {
         internal static System.Drawing.Bitmap fond {
             get {
                 object obj = ResourceManager.GetObject("fond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fond_game_over {
+            get {
+                object obj = ResourceManager.GetObject("fond_game_over", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fond_gameover {
+            get {
+                object obj = ResourceManager.GetObject("fond_gameover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -2,7 +2,7 @@
 {
     public partial class frmNouvellePartie : Form
     {
-        bool difficulter;
+        bool difficulte;
         public frmNouvellePartie()
         {
             InitializeComponent();
@@ -23,10 +23,10 @@
             {
                 if (cmbDifficulte.Text != "")
                 {
-                    difficulter = cmbDifficulte.SelectedItem.ToString() == "Normal" ? true : false;
+                    difficulte = cmbDifficulte.SelectedItem.ToString() == "Normal" ? true : false;
 
                     frmInterfaceJeu frmjeu;
-                    frmjeu = new frmInterfaceJeu(txtPseudo.Text, difficulter);
+                    frmjeu = new frmInterfaceJeu(txtPseudo.Text, difficulte);
                     frmjeu.ShowDialog();
                     this.Hide();
                 }

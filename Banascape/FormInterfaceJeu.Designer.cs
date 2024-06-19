@@ -164,10 +164,12 @@
             ClientSize = new Size(1924, 1055);
             ControlBox = false;
             Controls.Add(labyrinthePanel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(1);
             Name = "frmInterfaceJeu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Banascape";
+            WindowState = FormWindowState.Maximized;
             labyrinthePanel.ResumeLayout(false);
             labyrinthePanel.PerformLayout();
             panel1.ResumeLayout(false);
