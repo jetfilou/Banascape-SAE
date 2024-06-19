@@ -10,7 +10,7 @@ namespace Banascape
         private System.Windows.Forms.Timer tempsAvantProchainDeplacement;
         private System.Windows.Forms.Timer durerStunt;
         private Partie partie;
-        private Ennemie ennemieN1, ennemieN2/*, ennemieN3*/;
+        private Ennemie ennemieN1, ennemieN2;
         private Random random = new Random();
 
         private int positionVerticaleJoueur = 1;
@@ -30,8 +30,10 @@ namespace Banascape
         {
             InitializeComponent();
 
-            int dimension = diff ? 15 : 40;
-            partie = new Partie(pseudo, dimension, dimension);
+            int dimensionVerticale = diff ? 15 : 18;
+            int dimensionHorizontale = diff ? 20 : 25;
+
+            partie = new Partie(pseudo, dimensionHorizontale, dimensionVerticale);
             this.ClientSize = new Size(tailleImage * partie.Longueur, tailleImage * partie.Largeur);
 
             formMenuEchap = new FormMenuEchap();
@@ -70,10 +72,7 @@ namespace Banascape
             {
                 ennemieN2.StuntEnnemie();
             }
-            //if (ennemieN3.Stun == true)
-            //{
-            //    ennemieN3.StuntEnnemie();
-            //}
+
             durerStunt.Stop();
         }
 
@@ -133,13 +132,7 @@ namespace Banascape
                             ennemieN2.StuntEnnemie();
 
                         }
-                        //if (verifEnnemie(ennemieN3))
-                        //{
-                        //    durerStunt.Start();
-                        //    partie.ChangementInvincible();
-                        //    ennemieN3.StuntEnnemie();
 
-                        //}
                         partie.ChangementObjetUtilisé();
                         break;
                 }
@@ -333,7 +326,6 @@ namespace Banascape
 
             ennemieN1 = null;
             ennemieN2 = null;
-            //ennemieN3 = null;
 
             RechercheEnemie();
 
@@ -407,10 +399,10 @@ namespace Banascape
                         }
                         else
                         {
-                            direction = (direction + 1) % 4; // Changer de direction
+                            direction = (direction + 1) % 4;
                         }
                         break;
-                    case 2: // Gauche
+                    case 2:
                         if (nouvellePositionVerticale + 1 >= 0 && partie.Labyrinthe[nouvellePositionVerticale + 1, c] == 0)
                         {
                             nouvellePositionVerticale++;
@@ -419,10 +411,10 @@ namespace Banascape
                         }
                         else
                         {
-                            direction = (direction + 1) % 4; // Changer de direction
+                            direction = (direction + 1) % 4;
                         }
                         break;
-                    case 3: // Droite
+                    case 3:
                         if (nouvellePositionHorizontale - 1 < partie.Longueur && partie.Labyrinthe[r, nouvellePositionHorizontale - 1] == 0)
                         {
                             nouvellePositionHorizontale--;
@@ -431,34 +423,29 @@ namespace Banascape
                         }
                         else
                         {
-                            direction = (direction + 1) % 4; // Changer de direction
+                            direction = (direction + 1) % 4;
                         }
                         break;
                 }
             }
 
-            // Vérifier si la nouvelle position est valide et libre dans le labyrinthe
             if (nouvellePositionVerticale >= 0 && nouvellePositionVerticale < partie.Largeur &&
                 nouvellePositionHorizontale >= 0 && nouvellePositionHorizontale < partie.Longueur &&
-                partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0)
+                (partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 0 || partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] == 4))
             {
-                // Mettre à jour la grille du labyrinthe
                 partie.Labyrinthe[r, c] = 0;
                 partie.Labyrinthe[nouvellePositionVerticale, nouvellePositionHorizontale] = 4;
 
-                // Calcul des rectangles pour rafraîchir l'affichage
                 int offsetX = (this.ClientSize.Width - (partie.Longueur * tailleImage)) / 2;
                 int offsetY = (this.ClientSize.Height - (partie.Largeur * tailleImage)) / 2;
                 Rectangle ancienneCellule = new Rectangle(offsetX + c * tailleImage, offsetY + r * tailleImage, tailleImage, tailleImage);
                 Rectangle nouvelleCellule = new Rectangle(offsetX + nouvellePositionHorizontale * tailleImage, offsetY + nouvellePositionVerticale * tailleImage, tailleImage, tailleImage);
 
-                // Rafraîchir les parties concernées du panneau du labyrinthe
                 labyrinthePanel.Invalidate(ancienneCellule);
                 labyrinthePanel.Invalidate(nouvelleCellule);
 
-                // Mettre à jour la position de l'ennemi
                 ennemie.NouvellePosition(nouvellePositionVerticale, nouvellePositionHorizontale);
-                ennemie.DirectionActuelle = direction; // Mettre à jour la direction actuelle de l'ennemi
+                ennemie.DirectionActuelle = direction;
             }
 
             if (nouvellePositionVerticale == positionVerticaleJoueur && nouvellePositionHorizontale == positionHorizontaleJoueur)
@@ -486,8 +473,7 @@ namespace Banascape
                             ennemieN1 = new Ennemie(r, c);
                         else if (ennemieN2 == null)
                             ennemieN2 = new Ennemie(r, c);
-                        //else if (ennemieN3 == null)
-                        //    ennemieN3 = new Ennemie(r, c);
+
                     }
                 }
             }

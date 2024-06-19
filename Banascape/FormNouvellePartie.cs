@@ -2,9 +2,12 @@
 {
     public partial class frmNouvellePartie : Form
     {
+        bool difficulter;
         public frmNouvellePartie()
         {
             InitializeComponent();
+            lblAlertPseudo.Hide();
+            lblAlertDifficulter.Hide();
         }
 
         private void btnRetour_Click(object sender, EventArgs e)
@@ -16,13 +19,26 @@
         }
         private void btnLancer_Click(object sender, EventArgs e)
         {
-            frmInterfaceJeu frmjeu;
-            // instanciation d'un objet de type FormInterfaceJeu 
-            frmjeu = new frmInterfaceJeu(txtPseudo.Text, true);
+            if (txtPseudo.Text != "")
+            {
+                if (cmbDifficulte.Text != "")
+                {
+                    difficulter = cmbDifficulte.SelectedItem.ToString() == "Normal" ? true : false;
 
-            // ouverture du Jeu
-            frmjeu.ShowDialog();
-            this.Hide();
+                    frmInterfaceJeu frmjeu;
+                    frmjeu = new frmInterfaceJeu(txtPseudo.Text, difficulter);
+                    frmjeu.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    lblAlertDifficulter.Show();
+                }
+            }
+            else
+            {
+                lblAlertPseudo.Show();
+            }
 
         }
 
