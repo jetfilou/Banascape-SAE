@@ -253,6 +253,16 @@ namespace Banascape.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fond_laby1 {
+            get {
+                object obj = ResourceManager.GetObject("fond_laby1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap im1 {
             get {
                 object obj = ResourceManager.GetObject("im1", resourceCulture);

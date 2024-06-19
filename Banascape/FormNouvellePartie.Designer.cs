@@ -50,10 +50,10 @@
             btnRetour.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnRetour.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnRetour.FlatStyle = FlatStyle.Flat;
-            btnRetour.Location = new Point(225, 10);
+            btnRetour.Location = new Point(336, 23);
             btnRetour.Margin = new Padding(1);
             btnRetour.Name = "btnRetour";
-            btnRetour.Size = new Size(46, 39);
+            btnRetour.Size = new Size(53, 52);
             btnRetour.TabIndex = 1;
             btnRetour.UseVisualStyleBackColor = false;
             btnRetour.Click += btnRetour_Click;
@@ -69,11 +69,12 @@
             btnLancer.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnLancer.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnLancer.FlatStyle = FlatStyle.Flat;
-            btnLancer.Font = new Font("Microsoft Sans Serif", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLancer.Font = new Font("Bahnschrift", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLancer.ForeColor = Color.Black;
-            btnLancer.Location = new Point(73, 305);
+            btnLancer.Location = new Point(141, 407);
+            btnLancer.Margin = new Padding(3, 4, 3, 4);
             btnLancer.Name = "btnLancer";
-            btnLancer.Size = new Size(148, 37);
+            btnLancer.Size = new Size(169, 49);
             btnLancer.TabIndex = 2;
             btnLancer.Text = "Lancer";
             btnLancer.UseVisualStyleBackColor = false;
@@ -85,21 +86,22 @@
             txtPseudo.BackColor = Color.White;
             txtPseudo.BorderStyle = BorderStyle.FixedSingle;
             txtPseudo.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPseudo.Location = new Point(82, 138);
-            txtPseudo.Margin = new Padding(3, 2, 3, 2);
+            txtPseudo.Location = new Point(150, 210);
             txtPseudo.MaxLength = 10;
             txtPseudo.Name = "txtPseudo";
-            txtPseudo.Size = new Size(132, 32);
+            txtPseudo.Size = new Size(150, 39);
             txtPseudo.TabIndex = 3;
             // 
             // lblPseudo
             // 
             lblPseudo.Anchor = AnchorStyles.Top;
             lblPseudo.AutoSize = true;
-            lblPseudo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPseudo.Location = new Point(93, 118);
+            lblPseudo.BackColor = Color.Transparent;
+            lblPseudo.Font = new Font("Bahnschrift SemiBold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPseudo.ForeColor = Color.White;
+            lblPseudo.Location = new Point(119, 155);
             lblPseudo.Name = "lblPseudo";
-            lblPseudo.Size = new Size(114, 18);
+            lblPseudo.Size = new Size(213, 36);
             lblPseudo.TabIndex = 4;
             lblPseudo.Text = "Votre pseudo ?";
             // 
@@ -107,10 +109,12 @@
             // 
             label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
-            label2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(93, 199);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Bahnschrift SemiBold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(127, 268);
             label2.Name = "label2";
-            label2.Size = new Size(100, 18);
+            label2.Size = new Size(196, 36);
             label2.TabIndex = 5;
             label2.Text = "La difficulté ?";
             // 
@@ -118,33 +122,32 @@
             // 
             lblPartie.Anchor = AnchorStyles.Top;
             lblPartie.AutoSize = true;
-            lblPartie.BackColor = Color.Transparent;
-            lblPartie.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPartie.ForeColor = SystemColors.ControlText;
-            lblPartie.Location = new Point(59, 50);
+            lblPartie.BackColor = Color.Black;
+            lblPartie.Font = new Font("Bahnschrift Condensed", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPartie.ForeColor = Color.White;
+            lblPartie.Location = new Point(112, 85);
             lblPartie.Name = "lblPartie";
-            lblPartie.Size = new Size(175, 26);
+            lblPartie.Size = new Size(227, 45);
             lblPartie.TabIndex = 8;
-            lblPartie.Text = "Nouvelle Partie";
+            lblPartie.Text = "NOUVELLE PARTIE";
             // 
             // cmbDifficulte
             // 
             cmbDifficulte.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbDifficulte.FormattingEnabled = true;
             cmbDifficulte.Items.AddRange(new object[] { "Normal", "Difficile" });
-            cmbDifficulte.Location = new Point(98, 237);
-            cmbDifficulte.Margin = new Padding(3, 2, 3, 2);
+            cmbDifficulte.Location = new Point(150, 323);
             cmbDifficulte.Name = "cmbDifficulte";
-            cmbDifficulte.Size = new Size(95, 29);
+            cmbDifficulte.Size = new Size(150, 34);
             cmbDifficulte.TabIndex = 11;
             // 
             // frmNouvellePartie
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.im2;
-            BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(281, 366);
+            BackgroundImage = Properties.Resources.fond_laby1;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(433, 488);
             ControlBox = false;
             Controls.Add(cmbDifficulte);
             Controls.Add(lblPartie);
@@ -156,9 +159,10 @@
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmNouvellePartie";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "z";
+            Text = "Partie";
             ResumeLayout(false);
             PerformLayout();
         }
