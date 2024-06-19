@@ -490,6 +490,12 @@ namespace Banascape
                 picCoeur2.Image = Properties.Resources.coeur_vide;
                 if (partie.Vie == 0)
                 {
+                    frmGameOver frmPerdu;
+                    // instanciation d'un objet de type FormInterfaceJeu 
+                    frmPerdu = new frmGameOver();
+
+                    // ouverture du Jeu
+                    frmPerdu.Show();
                     this.Close();
                 }
 
@@ -510,6 +516,12 @@ namespace Banascape
                 picCoeur2.Image = Properties.Resources.coeur_vide;
                 if (partie.Vie == 0)
                 {
+                    frmGameOver frmPerdu;
+                    // instanciation d'un objet de type FormInterfaceJeu 
+                    frmPerdu = new frmGameOver();
+
+                    // ouverture du Jeu
+                    frmPerdu.Show();
                     this.Close();
                 }
 
@@ -527,6 +539,12 @@ namespace Banascape
                 picCoeur2.Image = Properties.Resources.coeur_vide;
                 if (partie.Vie == 0)
                 {
+                    frmGameOver frmPerdu;
+                    // instanciation d'un objet de type FormInterfaceJeu 
+                    frmPerdu = new frmGameOver();
+
+                    // ouverture du Jeu
+                    frmPerdu.Show();
                     this.Close();
                 }
 
