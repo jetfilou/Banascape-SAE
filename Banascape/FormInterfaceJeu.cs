@@ -453,6 +453,12 @@ namespace Banascape
                 ennemie.NouvellePosition(nouvellePositionVerticale, nouvellePositionHorizontale);
                 ennemie.DirectionActuelle = direction; // Mettre à jour la direction actuelle de l'ennemi
             }
+
+            if(nouvellePositionVerticale == positionVerticaleJoueur && nouvellePositionHorizontale == positionHorizontaleJoueur)
+            {
+                degat();
+
+            }
         }
 
         int ObjetAleatoire()

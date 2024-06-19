@@ -42,7 +42,7 @@ namespace Banascape
 
         public void StuntEnnemie()
         {
-            _stunt = true;
+            _stunt = !_stunt;
         }
     }
 }
