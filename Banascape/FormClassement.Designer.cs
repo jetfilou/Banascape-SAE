@@ -120,7 +120,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = SystemColors.ActiveCaptionText;
             BackgroundImage = Properties.Resources.Menu_vierge;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(328, 418);
