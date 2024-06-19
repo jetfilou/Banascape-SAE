@@ -1,12 +1,19 @@
-﻿namespace Banascape
+﻿using System.Reflection.Metadata;
+
+namespace Banascape
 {
     internal class GenerateurDeLabyrinthe
     {
+        // Déclaration des attributs
         private int largeur;
         private int hauteur;
         private int[,] labyrinthe;
 
-        // Définie la taille du labyrinthe (constructeur)
+        // Constructeur de la classe GenerateurDeLabyrinthe
+        // Définissent les tailles du labyrinthe
+        // Paramètre :
+        // largeur : entier(largeur du labyrinthe)
+        // hauteur : entier(longueur du labyrinthe)
         public GenerateurDeLabyrinthe(int largeur, int hauteur)
         {
             this.largeur = largeur;
@@ -14,7 +21,10 @@
             labyrinthe = new int[hauteur, largeur];
         }
 
-        // Définie tous les cases comme des murs et appelle la fonction de recherche en profondeur
+        // Procédure GenerationDuLabyrinthe 
+        // Défini tout le labyrinthe comme des murs puis appelle la procédure (rechercheEnProfondeur) afin de créer le labyrinthe 
+        // ensuite appelle des procédures faisant apparaitre les items et les ennemis dans le labyrinthe
+        // Paramètre : Aucun
         public void GenerationDuLabyrinthe()
         {
             for (int i = 0; i < hauteur; i++)
@@ -30,12 +40,16 @@
             AjouterClef();
             AjouterEnemie();
             AjouterEnemie();
-            //AjouterEnemie();
             AjouterCaise();
             labyrinthe[hauteur - 1, largeur - 1] = 3;
         }
 
-        // Recherche en profondeur
+        // Procédure RechercheEnProfondeur
+        // Appel de la procédure (Melange)
+        // Permets des créer un labyrinthe complètement aléatoire et different à chaque iteration
+        // Paramètre :
+        //      Ligne Debut : entier (ligne où commencera le labyrinthe)
+        //      Colonne Debut : entier (colonne où commencera le labyrinthe)
         private void RechercheEnProfondeur(int ligneDebut, int coloneDebut)
         {
             labyrinthe[ligneDebut, coloneDebut] = 0;
@@ -63,13 +77,20 @@
             }
         }
 
-        // Vérifie si la position se trouve dans le labyrinthe
+        // Procédure TestePosition
+        // Permets de vérifier si le positon se situe bien dans le labyrinthe et n'est pas hors limite
+        // Paramètre :
+        //      ligne : entier
+        //      colonne : entier
         private bool TestePosition(int ligne, int colone)
         {
             return ligne >= 0 && ligne < hauteur && colone >= 0 && colone < largeur;
         }
 
-        // Mélange un tableau en une dimension
+        // Procédure Mélange
+        // Mélange un tableau à une dimension pour avoir des directions aléatoires lors de la création du labyrinthe
+        // Paramètre :
+        //      tableau a 1 dimension : entier (stocke les 4 directions possibles : haut, bas, gauche, droite)
         private void Melange(int[] array)
         {
             Random rnd = new Random();
@@ -82,12 +103,18 @@
             }
         }
 
+        // Fonction Getlabyrinthe 
         // Retourne le labyrinthe généré
+        // Paramètre : aucun
         public int[,] GetLabyrinthe()
         {
             return labyrinthe;
         }
 
+        // Procédure AjouterClef
+        // Mets dans 1 liste toute les positions vide
+        // puis sélectionne 1 aléatoirement pour y déposer la clef 
+        // Paramètre : aucun
         public void AjouterClef()
         {
             List<Tuple<int, int>> positionsValides = new List<Tuple<int, int>>();
@@ -111,6 +138,10 @@
             }
         }
 
+        // Procédure AjouterEnnemie
+        // Mets dans 1 liste toute les positions vide
+        // puis sélectionne 1 aléatoirement pour y déposer l' ennemi
+        // Paramètre : aucun
         public void AjouterEnemie()
         {
             List<Tuple<int, int>> positionsValides = new List<Tuple<int, int>>();
@@ -133,6 +164,11 @@
                 labyrinthe[positionAleatoire.Item1, positionAleatoire.Item2] = 4;
             }
         }
+
+        // Procédure AjouterCaise
+        // Mets dans 1 liste toute les positions vide
+        // puis sélectionne 1 aléatoirement pour y déposer la caisse
+        // Paramètre : aucun
         public void AjouterCaise()
         {
             List<Tuple<int, int>> positionsValides = new List<Tuple<int, int>>();
@@ -156,9 +192,13 @@
             }
         }
 
+        // Procédure PassageAleatoire
+        // supprime 8 murs aléatoires dans le labyrinthe afin de créer plusieurs passages possibles
+        // Paramètre : aucun
         public void PassageAleatoire()
         {
-            for(int i = 0;i < 8; i++) {
+            for (int i = 0; i < 8; i++)
+            {
                 int hauteurAleatoire = 0, largeurAleatoire = 0, minVal = 0, maxVal = hauteur;
                 do
                 {
@@ -171,7 +211,10 @@
             }
         }
 
-        // Retourne le labyrinthe avec bordures de 1
+        // fonction GetLabyrintheAvecBordures
+        // Ajoute des bordures au labyrinthe
+        // retourne le labyrinthe 
+        // Paramètre : aucun
         public int[,] GetLabyrintheAvecBordures()
         {
             int[,] labyrintheAvecBordures = new int[hauteur + 2, largeur + 2];

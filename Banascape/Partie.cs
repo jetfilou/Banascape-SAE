@@ -5,7 +5,7 @@ namespace Banascape
 {
     internal class Partie
     {
-        // Propriétés
+        // Déclaration des attributs
         private string _pseudo;
         private int _nbVie;
         private bool _clef;
@@ -19,6 +19,11 @@ namespace Banascape
         private int _typeObjet;
         private bool _invincible;
 
+        // Constructeur de la class Partie 
+        // Appel à la class GenerateurDeLabyrinthe
+        // Paramètre ;
+        //      pseudo : chaine de caractère (pseudo du joueur actuel)
+        //      longueurlabyrinthe, largeurlabyrinthe : entier (dimension du labyrinthe)
         public Partie(string pseudo, int longueurLabyrinthe, int largeurLabyrinthe)
         {
             _pseudo = pseudo;
@@ -37,6 +42,8 @@ namespace Banascape
             _labyrinthe = generateur.GetLabyrintheAvecBordures();
         }
 
+
+        // ensemble des gets
         public int[,] Labyrinthe => _labyrinthe;
         public int Largeur => _largeurLabyrinthe;
         public int Longueur => _longueurLabyrinthe;
@@ -48,46 +55,84 @@ namespace Banascape
         public int TypeObjet => _typeObjet;
         public bool Objet => _objetInventaire;
         public bool Invincible => _invincible;
+        public string Pseudo => _pseudo;
 
+        // Procédure ChangementClef
+        // change l'état de clef en fonction de si elle a été ramassée ou non
+        // Paramètre : aucun
         public void ChangementClef()
         {
             _clef = !_clef;
         }
 
+        // Procédure ChangementPorte
+        // change l'état de Porte en fonction de si la clef a été ramassée ou non
+        // Paramètre : aucun
         public void ChangementPorte()
         {
             _porte = !_porte;
         }
 
+        // Procédure RetirerVie
+        // Baisse la valeur de nbVie de 1
+        // Paramètre : aucun
         public void RetirerVie()
         {
             _nbVie--;
         }
+
+        // Procédure AjoutrerVie
+        // Augmente la valeur de nbVie de 1
+        // Paramètre : aucun
         public void AjoutrerVie()
         {
             _nbVie++;
         }
 
-        public void AugmenterPoint()
+        // Procédure AugmenterPoint
+        // Augmente la valeur de point de 100
+        // Paramètre : aucun
+        public void AugmenterPoint(int pointAjouter)
         {
-            _point += 100;
+            _point += pointAjouter;
         }
+
+        // Procédure ChangementObjetRamasser
+        // Change la valeur d'objetInventaire en True
+        // et définit le type de l'objet en fonction du paramètre 
+        // Paramètre :
+        //      Obj : entier (nombre faisant référence a different objet)
         public void ChangementObjetRamaser(int obj)
         {
             _objetInventaire = true;
             _typeObjet = obj;
 
         }
+
+        // Procédure ChangementObjetUtilisé
+        // Change la valeur d'objetInventaire en False
+        // et définit le type de l'objet à 0
+        // Paramètre : aucun
         public void ChangementObjetUtilisé()
         {
             _objetInventaire = false;
             _typeObjet = 0;
 
         }
+
+        // Procédure ChangementInvicible
+        // Change l'état de invincible après chaque appel
+        // Paramètre : aucun
         public void ChangementInvincible()
         {
             _invincible = !_invincible;
         }
+
+        // Procédure chargerNouveauLabyrinthe
+        // Appel de la class GenerateurDeLabyrinthe
+        // Redéfinis les valeurs de clef et porte à false 
+        // augmente de 1 la valeur de niveau
+        // Paramètre : aucun
         public void ChargerNouveauLabyrinthe()
         {
             GenerateurDeLabyrinthe generateur = new GenerateurDeLabyrinthe(_longueurLabyrinthe - 2, _largeurLabyrinthe - 2);

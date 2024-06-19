@@ -2,7 +2,7 @@
 
 namespace Banascape
 {
-    internal class Ennemie
+    internal class Ennemi
     {
         private bool _etat;
         private int _positionVerticale;
@@ -12,7 +12,7 @@ namespace Banascape
         private bool _stunt;
         private int _directionActuelle; 
 
-        public Ennemie(int positionVertical, int positionHorizontale)
+        public Ennemi(int positionVertical, int positionHorizontale)
         {
             _positionVerticale = positionVertical;
             _positionHorizontale = positionHorizontale;

@@ -12,11 +12,13 @@ namespace Banascape
 {
     public partial class frmGameOver : Form
     {
-        public frmGameOver()
+        public frmGameOver(int point,int Niveaux, string pseudo)
         {
             InitializeComponent();
-            lblResultatNiveau.Text = "niveau";
-            lblResultatScore.Text = "score";
+
+            lblResultatNiveau.Text = Convert.ToString(Niveaux);
+            lblResultatScore.Text = Convert.ToString(point);
+            lblPseudoJoueur.Text = pseudo;
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
@@ -34,10 +36,9 @@ namespace Banascape
         {
             this.Close();
             frmNouvellePartie frmNewPartie;
-            // instanciation d'un objet de type FormNouvellePartie 
+
             frmNewPartie = new frmNouvellePartie();
 
-            // ouverture du formulaire Nouvelle partie et fermeture de l'écran d'accueil
             frmNewPartie.Show();
         }
     }

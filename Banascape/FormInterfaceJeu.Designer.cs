@@ -53,8 +53,9 @@
             labyrinthePanel.Controls.Add(panel1);
             labyrinthePanel.Dock = DockStyle.Fill;
             labyrinthePanel.Location = new Point(0, 0);
+            labyrinthePanel.Margin = new Padding(3, 2, 3, 2);
             labyrinthePanel.Name = "labyrinthePanel";
-            labyrinthePanel.Size = new Size(1924, 1055);
+            labyrinthePanel.Size = new Size(1684, 791);
             labyrinthePanel.TabIndex = 0;
             labyrinthePanel.Paint += OnPaint;
             // 
@@ -66,9 +67,9 @@
             lblPoint.Dock = DockStyle.Right;
             lblPoint.Font = new Font("Bahnschrift", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPoint.ForeColor = Color.White;
-            lblPoint.Location = new Point(1765, 0);
+            lblPoint.Location = new Point(1558, 0);
             lblPoint.Name = "lblPoint";
-            lblPoint.Size = new Size(159, 41);
+            lblPoint.Size = new Size(126, 33);
             lblPoint.TabIndex = 6;
             lblPoint.Text = "Points : 0";
             lblPoint.TextAlign = ContentAlignment.TopCenter;
@@ -81,9 +82,9 @@
             lblNiveau.Dock = DockStyle.Bottom;
             lblNiveau.Font = new Font("Bahnschrift", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNiveau.ForeColor = Color.White;
-            lblNiveau.Location = new Point(0, 946);
+            lblNiveau.Location = new Point(0, 707);
             lblNiveau.Name = "lblNiveau";
-            lblNiveau.Size = new Size(160, 41);
+            lblNiveau.Size = new Size(127, 33);
             lblNiveau.TabIndex = 1;
             lblNiveau.Text = "Niveau : 1";
             lblNiveau.TextAlign = ContentAlignment.TopCenter;
@@ -96,10 +97,9 @@
             panel1.Controls.Add(picCoeur1);
             panel1.Controls.Add(picClef);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 987);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(0, 740);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1924, 68);
+            panel1.Size = new Size(1684, 51);
             panel1.TabIndex = 5;
             // 
             // picObjet
@@ -107,11 +107,10 @@
             picObjet.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             picObjet.BackColor = Color.Transparent;
             picObjet.BorderStyle = BorderStyle.Fixed3D;
-            picObjet.Location = new Point(1754, 8);
-            picObjet.Margin = new Padding(3, 4, 3, 4);
-            picObjet.MaximumSize = new Size(60, 60);
+            picObjet.Location = new Point(1535, 6);
+            picObjet.MaximumSize = new Size(53, 46);
             picObjet.Name = "picObjet";
-            picObjet.Size = new Size(60, 60);
+            picObjet.Size = new Size(53, 46);
             picObjet.SizeMode = PictureBoxSizeMode.StretchImage;
             picObjet.TabIndex = 5;
             picObjet.TabStop = false;
@@ -120,11 +119,10 @@
             // 
             picCoeur2.BackColor = Color.Transparent;
             picCoeur2.Image = Properties.Resources.coeur_plein;
-            picCoeur2.Location = new Point(90, 0);
-            picCoeur2.Margin = new Padding(3, 4, 3, 4);
-            picCoeur2.MaximumSize = new Size(70, 64);
+            picCoeur2.Location = new Point(79, 0);
+            picCoeur2.MaximumSize = new Size(61, 48);
             picCoeur2.Name = "picCoeur2";
-            picCoeur2.Size = new Size(70, 64);
+            picCoeur2.Size = new Size(61, 48);
             picCoeur2.SizeMode = PictureBoxSizeMode.StretchImage;
             picCoeur2.TabIndex = 3;
             picCoeur2.TabStop = false;
@@ -133,11 +131,10 @@
             // 
             picCoeur1.BackColor = Color.Transparent;
             picCoeur1.Image = Properties.Resources.coeur_plein;
-            picCoeur1.Location = new Point(14, 0);
-            picCoeur1.Margin = new Padding(3, 4, 3, 4);
-            picCoeur1.MaximumSize = new Size(70, 64);
+            picCoeur1.Location = new Point(12, 0);
+            picCoeur1.MaximumSize = new Size(61, 48);
             picCoeur1.Name = "picCoeur1";
-            picCoeur1.Size = new Size(70, 64);
+            picCoeur1.Size = new Size(61, 48);
             picCoeur1.SizeMode = PictureBoxSizeMode.StretchImage;
             picCoeur1.TabIndex = 4;
             picCoeur1.TabStop = false;
@@ -147,21 +144,21 @@
             picClef.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             picClef.BackColor = Color.Transparent;
             picClef.Image = Properties.Resources.clef;
-            picClef.Location = new Point(1816, 4);
-            picClef.Margin = new Padding(571, 667, 571, 667);
-            picClef.MaximumSize = new Size(69, 80);
+            picClef.Location = new Point(1589, 3);
+            picClef.Margin = new Padding(500);
+            picClef.MaximumSize = new Size(60, 60);
             picClef.Name = "picClef";
-            picClef.Size = new Size(60, 64);
+            picClef.Size = new Size(52, 48);
             picClef.SizeMode = PictureBoxSizeMode.StretchImage;
             picClef.TabIndex = 2;
             picClef.TabStop = false;
             // 
             // frmInterfaceJeu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(1684, 791);
             ControlBox = false;
             Controls.Add(labyrinthePanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
