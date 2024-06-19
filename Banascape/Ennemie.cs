@@ -10,8 +10,7 @@ namespace Banascape
         private int _anciennePositionVerticale;
         private int _anciennePositionHorizontale;
         private bool _stunt;
-        private int[,] _labyrinthe;
-
+        private int _directionActuelle; 
 
         public Ennemie(int positionVertical, int positionHorizontale)
         {
@@ -19,15 +18,19 @@ namespace Banascape
             _positionHorizontale = positionHorizontale;
             _etat = true;
             _stunt = false;
+            _directionActuelle = 0; 
         }
 
         public int AnciennePositionVerticale => _anciennePositionVerticale;
         public int AnciennePositionHorizontale => _anciennePositionHorizontale;
         public int NouvellePositionVerticale => _positionVerticale;
         public int NouvellePositionHorizontale => _positionHorizontale;
+        public int DirectionActuelle
+        {
+            get => _directionActuelle;
+            set => _directionActuelle = value;
+        }
         public bool Stun => _stunt;
-        public int[,] Labyrinthe => _labyrinthe;
-
         public void NouvellePosition(int nouvellePositionVertical, int nouvellePositionHorizontale)
         {
             _anciennePositionVerticale = _positionVerticale;
@@ -39,17 +42,10 @@ namespace Banascape
 
         public void StuntEnnemie()
         {
-            _stunt = !_stunt;
+            _stunt = true;
         }
-        public void LabyrintheEnnemi(int[,] labyrinthe)
-        {
-            _labyrinthe = labyrinthe;
-        }
-
-        public void LabyrintheEnnemiChangementCasse(int verticale, int horizontale, int val)
-        {
-            _labyrinthe[verticale, horizontale]= val;
-        }
-        ~Ennemie() { }
     }
 }
+
+
+     
